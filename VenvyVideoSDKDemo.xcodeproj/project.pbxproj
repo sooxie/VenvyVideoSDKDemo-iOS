@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		067506911B705CAB001B699B /* VVViewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067506901B705CAB001B699B /* VVViewPlayerViewController.m */; };
+		068B1F831B25681C0022F9C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F821B25681C0022F9C9 /* main.m */; };
+		068B1F861B25681C0022F9C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F851B25681C0022F9C9 /* AppDelegate.m */; };
+		068B1F8C1B25681C0022F9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068B1F8A1B25681C0022F9C9 /* Main.storyboard */; };
+		068B1F8E1B25681C0022F9C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 068B1F8D1B25681C0022F9C9 /* Images.xcassets */; };
+		068B1F911B25681C0022F9C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068B1F8F1B25681C0022F9C9 /* LaunchScreen.xib */; };
+		068B1F9D1B25681C0022F9C9 /* VenvyVideoSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F9C1B25681C0022F9C9 /* VenvyVideoSDKDemoTests.m */; };
+		068B1FAC1B25687A0022F9C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FAB1B25687A0022F9C9 /* AudioToolbox.framework */; };
+		068B1FAE1B25687E0022F9C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FAD1B25687E0022F9C9 /* AVFoundation.framework */; };
+		068B1FB01B2568840022F9C9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FAF1B2568840022F9C9 /* MediaPlayer.framework */; };
+		068B1FB21B2568890022F9C9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FB11B2568890022F9C9 /* CoreMedia.framework */; };
+		068B1FB41B2568AC0022F9C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FB31B2568AC0022F9C9 /* WebKit.framework */; };
+		068B1FB91B2568D20022F9C9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FB81B2568D20022F9C9 /* libz.dylib */; };
+		068B1FBB1B2568D90022F9C9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 068B1FBA1B2568D90022F9C9 /* libbz2.dylib */; };
+		068B1FD21B2571A90022F9C9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1FD11B2571A90022F9C9 /* MainViewController.m */; };
+		06F870A01B79F6460040968D /* VenvyVideoSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06F8709E1B79F6460040968D /* VenvyVideoSDKResources.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		068B1F971B25681C0022F9C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 068B1F751B25681C0022F9C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 068B1F7C1B25681C0022F9C9;
+			remoteInfo = VenvyVideoSDKDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVViewPlayerViewController.h; sourceTree = "<group>"; };
+		067506901B705CAB001B699B /* VVViewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVViewPlayerViewController.m; sourceTree = "<group>"; };
+		068B1F7D1B25681C0022F9C9 /* VenvyVideoSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenvyVideoSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		068B1F811B25681C0022F9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		068B1F821B25681C0022F9C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		068B1F841B25681C0022F9C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		068B1F851B25681C0022F9C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		068B1F8B1B25681C0022F9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		068B1F8D1B25681C0022F9C9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		068B1F901B25681C0022F9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		068B1F961B25681C0022F9C9 /* VenvyVideoSDKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenvyVideoSDKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		068B1F9B1B25681C0022F9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		068B1F9C1B25681C0022F9C9 /* VenvyVideoSDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenvyVideoSDKDemoTests.m; sourceTree = "<group>"; };
+		068B1FAB1B25687A0022F9C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		068B1FAD1B25687E0022F9C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		068B1FAF1B2568840022F9C9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		068B1FB11B2568890022F9C9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		068B1FB31B2568AC0022F9C9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		068B1FB81B2568D20022F9C9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		068B1FBA1B2568D90022F9C9 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
+		068B1FD01B2571A90022F9C9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		068B1FD11B2571A90022F9C9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		06F8709E1B79F6460040968D /* VenvyVideoSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = VenvyVideoSDKResources.bundle; path = ../../VenvyVideoSDKFramework/VenvyVideoSDKResources.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		068B1F7A1B25681C0022F9C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				068B1FBB1B2568D90022F9C9 /* libbz2.dylib in Frameworks */,
+				068B1FB91B2568D20022F9C9 /* libz.dylib in Frameworks */,
+				068B1FB41B2568AC0022F9C9 /* WebKit.framework in Frameworks */,
+				068B1FB21B2568890022F9C9 /* CoreMedia.framework in Frameworks */,
+				068B1FB01B2568840022F9C9 /* MediaPlayer.framework in Frameworks */,
+				068B1FAE1B25687E0022F9C9 /* AVFoundation.framework in Frameworks */,
+				068B1FAC1B25687A0022F9C9 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		068B1F931B25681C0022F9C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		068B1F741B25681C0022F9C9 = {
+			isa = PBXGroup;
+			children = (
+				068B1F7F1B25681C0022F9C9 /* VenvyVideoSDKDemo */,
+				068B1F991B25681C0022F9C9 /* VenvyVideoSDKDemoTests */,
+				068B1F7E1B25681C0022F9C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		068B1F7E1B25681C0022F9C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				068B1F7D1B25681C0022F9C9 /* VenvyVideoSDKDemo.app */,
+				068B1F961B25681C0022F9C9 /* VenvyVideoSDKDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		068B1F7F1B25681C0022F9C9 /* VenvyVideoSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				068B1FA61B25685F0022F9C9 /* Framework */,
+				068B1F841B25681C0022F9C9 /* AppDelegate.h */,
+				068B1F851B25681C0022F9C9 /* AppDelegate.m */,
+				068B1F8A1B25681C0022F9C9 /* Main.storyboard */,
+				068B1F8D1B25681C0022F9C9 /* Images.xcassets */,
+				068B1F8F1B25681C0022F9C9 /* LaunchScreen.xib */,
+				068B1FD01B2571A90022F9C9 /* MainViewController.h */,
+				068B1FD11B2571A90022F9C9 /* MainViewController.m */,
+				0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */,
+				067506901B705CAB001B699B /* VVViewPlayerViewController.m */,
+				068B1F801B25681C0022F9C9 /* Supporting Files */,
+			);
+			path = VenvyVideoSDKDemo;
+			sourceTree = "<group>";
+		};
+		068B1F801B25681C0022F9C9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				068B1F811B25681C0022F9C9 /* Info.plist */,
+				068B1F821B25681C0022F9C9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		068B1F991B25681C0022F9C9 /* VenvyVideoSDKDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				068B1F9C1B25681C0022F9C9 /* VenvyVideoSDKDemoTests.m */,
+				068B1F9A1B25681C0022F9C9 /* Supporting Files */,
+			);
+			path = VenvyVideoSDKDemoTests;
+			sourceTree = "<group>";
+		};
+		068B1F9A1B25681C0022F9C9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				068B1F9B1B25681C0022F9C9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		068B1FA61B25685F0022F9C9 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				06F8709E1B79F6460040968D /* VenvyVideoSDKResources.bundle */,
+				068B1FBA1B2568D90022F9C9 /* libbz2.dylib */,
+				068B1FB81B2568D20022F9C9 /* libz.dylib */,
+				068B1FB31B2568AC0022F9C9 /* WebKit.framework */,
+				068B1FB11B2568890022F9C9 /* CoreMedia.framework */,
+				068B1FAF1B2568840022F9C9 /* MediaPlayer.framework */,
+				068B1FAD1B25687E0022F9C9 /* AVFoundation.framework */,
+				068B1FAB1B25687A0022F9C9 /* AudioToolbox.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		068B1F7C1B25681C0022F9C9 /* VenvyVideoSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 068B1FA01B25681C0022F9C9 /* Build configuration list for PBXNativeTarget "VenvyVideoSDKDemo" */;
+			buildPhases = (
+				068B1F791B25681C0022F9C9 /* Sources */,
+				068B1F7A1B25681C0022F9C9 /* Frameworks */,
+				068B1F7B1B25681C0022F9C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VenvyVideoSDKDemo;
+			productName = VenvyVideoSDKDemo;
+			productReference = 068B1F7D1B25681C0022F9C9 /* VenvyVideoSDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		068B1F951B25681C0022F9C9 /* VenvyVideoSDKDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 068B1FA31B25681C0022F9C9 /* Build configuration list for PBXNativeTarget "VenvyVideoSDKDemoTests" */;
+			buildPhases = (
+				068B1F921B25681C0022F9C9 /* Sources */,
+				068B1F931B25681C0022F9C9 /* Frameworks */,
+				068B1F941B25681C0022F9C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				068B1F981B25681C0022F9C9 /* PBXTargetDependency */,
+			);
+			name = VenvyVideoSDKDemoTests;
+			productName = VenvyVideoSDKDemoTests;
+			productReference = 068B1F961B25681C0022F9C9 /* VenvyVideoSDKDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		068B1F751B25681C0022F9C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = VenvyVideo;
+				TargetAttributes = {
+					068B1F7C1B25681C0022F9C9 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = SQN862FS9X;
+					};
+					068B1F951B25681C0022F9C9 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 068B1F7C1B25681C0022F9C9;
+					};
+				};
+			};
+			buildConfigurationList = 068B1F781B25681C0022F9C9 /* Build configuration list for PBXProject "VenvyVideoSDKDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 068B1F741B25681C0022F9C9;
+			productRefGroup = 068B1F7E1B25681C0022F9C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				068B1F7C1B25681C0022F9C9 /* VenvyVideoSDKDemo */,
+				068B1F951B25681C0022F9C9 /* VenvyVideoSDKDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		068B1F7B1B25681C0022F9C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				068B1F8C1B25681C0022F9C9 /* Main.storyboard in Resources */,
+				06F870A01B79F6460040968D /* VenvyVideoSDKResources.bundle in Resources */,
+				068B1F911B25681C0022F9C9 /* LaunchScreen.xib in Resources */,
+				068B1F8E1B25681C0022F9C9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		068B1F941B25681C0022F9C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		068B1F791B25681C0022F9C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				068B1F861B25681C0022F9C9 /* AppDelegate.m in Sources */,
+				068B1FD21B2571A90022F9C9 /* MainViewController.m in Sources */,
+				067506911B705CAB001B699B /* VVViewPlayerViewController.m in Sources */,
+				068B1F831B25681C0022F9C9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		068B1F921B25681C0022F9C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				068B1F9D1B25681C0022F9C9 /* VenvyVideoSDKDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		068B1F981B25681C0022F9C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 068B1F7C1B25681C0022F9C9 /* VenvyVideoSDKDemo */;
+			targetProxy = 068B1F971B25681C0022F9C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		068B1F8A1B25681C0022F9C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				068B1F8B1B25681C0022F9C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		068B1F8F1B25681C0022F9C9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				068B1F901B25681C0022F9C9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		068B1F9E1B25681C0022F9C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		068B1F9F1B25681C0022F9C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		068B1FA11B25681C0022F9C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Zard1096/Documents/venvy_workspace/IOS_workspace/VenvyVideoSDKFramework,
+					"$(PROJECT_DIR)/VenvyVideoSDKDemo",
+					"$(PROJECT_DIR)/VenvyVideoSDK/Products",
+					/Users/Zard1096/Documents/venvy_workspace/IOS_workspace/VenvyVideoSDK/Products,
+				);
+				INFOPLIST_FILE = VenvyVideoSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		068B1FA21B25681C0022F9C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Zard1096/Documents/venvy_workspace/IOS_workspace/VenvyVideoSDKFramework,
+					"$(PROJECT_DIR)/VenvyVideoSDKDemo",
+					"$(PROJECT_DIR)/VenvyVideoSDK/Products",
+					/Users/Zard1096/Documents/venvy_workspace/IOS_workspace/VenvyVideoSDK/Products,
+				);
+				INFOPLIST_FILE = VenvyVideoSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		068B1FA41B25681C0022F9C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VenvyVideoSDKDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VenvyVideoSDKDemo.app/VenvyVideoSDKDemo";
+			};
+			name = Debug;
+		};
+		068B1FA51B25681C0022F9C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VenvyVideoSDKDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VenvyVideoSDKDemo.app/VenvyVideoSDKDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		068B1F781B25681C0022F9C9 /* Build configuration list for PBXProject "VenvyVideoSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				068B1F9E1B25681C0022F9C9 /* Debug */,
+				068B1F9F1B25681C0022F9C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		068B1FA01B25681C0022F9C9 /* Build configuration list for PBXNativeTarget "VenvyVideoSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				068B1FA11B25681C0022F9C9 /* Debug */,
+				068B1FA21B25681C0022F9C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		068B1FA31B25681C0022F9C9 /* Build configuration list for PBXNativeTarget "VenvyVideoSDKDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				068B1FA41B25681C0022F9C9 /* Debug */,
+				068B1FA51B25681C0022F9C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 068B1F751B25681C0022F9C9 /* Project object */;
+}

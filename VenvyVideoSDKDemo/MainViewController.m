@@ -38,11 +38,6 @@
     [urlTextField.layer setBorderWidth:1];
     [urlTextField setFont:[UIFont systemFontOfSize:14]];
 
-    urlTextField.text = @"http://plu-test001.d.wcsapi.biz.matocloud.com/f666a36edc4c4592973ced0b45854d38_426x240.mp4";
-    urlTextField.text = @"http://222.73.166.164/m3u8/cctv5_1300/desc.m3u8?stream_id=cctv5_1300&path=114.80.187.228,114.80.198.138&platid=10&splatid=1036&qos=4&keyitem=3QXPvpbxA8jP5ooS8gKaSVdTZDENLRD87vtbuN9KhJ0.&ntm=1438927200&nkey2=5bee90b709ba17bc126bd3ed50b1ee6f&nkey=15a90d1ac4b8808758df5f2c86a8d940&enckit=1&tag=live&video_type=m3u8";
-    urlTextField.text = @"http://10.0.0.50/1.mp4";
-//    urlTextField.text = @"http://pl.youku.com/playlist/m3u8?ts=1431068621&keyframe=1&vid=XNTE2MTkzNjky&type=hd2&sid=143106862177321cc066a&token=4854&oip=1008521668&ep=w%2BYR%2FV5FaDY5%2BS7yPTCiTQ%2B6VUQw5n2HZXVHHbXs7fb075yNXnk%2FMArJUg5hbqgl&did=65c906c26a8703f45f2f64b92bff8203e8697e75&ctype=21&ev=1";
-//    urlTextField.text = @"http://v.youku.com/v_show/id_XMTMxMjE5MDE4OA==_ev_1.html?from=y1.3-idx-uhome-1519-20887.205805-205902.1-1";
     
     [self.view addSubview:urlTextField];
     

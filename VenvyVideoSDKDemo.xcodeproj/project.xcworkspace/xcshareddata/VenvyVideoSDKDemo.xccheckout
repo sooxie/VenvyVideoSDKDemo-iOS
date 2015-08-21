@@ -12,7 +12,7 @@
 	<dict>
 		<key>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</key>
 		<string>https://git.oschina.net/Zard1096/VenvyVideoSDK.git</string>
-		<key>5A1E6A6CD838054D8CBCC3AEF3B14C397C754655</key>
+		<key>6EFFFE2436E28FE34257E8494111C256E1A596A5</key>
 		<string>https://git.oschina.net/Zard1096/VenvyVideoSDKDemo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
@@ -21,7 +21,7 @@
 	<dict>
 		<key>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</key>
 		<string>../..VenvyVideoSDK</string>
-		<key>5A1E6A6CD838054D8CBCC3AEF3B14C397C754655</key>
+		<key>6EFFFE2436E28FE34257E8494111C256E1A596A5</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -29,14 +29,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5A1E6A6CD838054D8CBCC3AEF3B14C397C754655</string>
+	<string>6EFFFE2436E28FE34257E8494111C256E1A596A5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5A1E6A6CD838054D8CBCC3AEF3B14C397C754655</string>
+			<string>6EFFFE2436E28FE34257E8494111C256E1A596A5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>VenvyVideoSDKDemo</string>
 		</dict>

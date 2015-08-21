@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0672945E1B86CCE800A81A25 /* VenvyVideoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0672945B1B86CCD500A81A25 /* VenvyVideoSDK.framework */; };
 		067506911B705CAB001B699B /* VVViewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067506901B705CAB001B699B /* VVViewPlayerViewController.m */; };
 		068B1F831B25681C0022F9C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F821B25681C0022F9C9 /* main.m */; };
 		068B1F861B25681C0022F9C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F851B25681C0022F9C9 /* AppDelegate.m */; };
@@ -26,6 +27,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0672945A1B86CCD500A81A25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 067293E31B86CCD500A81A25 /* VenvyVideoSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06FE0B8E1B43F092006910B8;
+			remoteInfo = VenvyVideoSDK;
+		};
+		0672945C1B86CCD500A81A25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 067293E31B86CCD500A81A25 /* VenvyVideoSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06D852D01B44D9E300B9CC57;
+			remoteInfo = VenvyVideoSDKResources;
+		};
 		068B1F971B25681C0022F9C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 068B1F751B25681C0022F9C9 /* Project object */;
@@ -36,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067293E31B86CCD500A81A25 /* VenvyVideoSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = VenvyVideoSDK.xcodeproj; sourceTree = "<group>"; };
 		0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVViewPlayerViewController.h; sourceTree = "<group>"; };
 		067506901B705CAB001B699B /* VVViewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVViewPlayerViewController.m; sourceTree = "<group>"; };
 		068B1F7D1B25681C0022F9C9 /* VenvyVideoSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenvyVideoSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0672945E1B86CCE800A81A25 /* VenvyVideoSDK.framework in Frameworks */,
 				068B1FBB1B2568D90022F9C9 /* libbz2.dylib in Frameworks */,
 				068B1FB91B2568D20022F9C9 /* libz.dylib in Frameworks */,
 				068B1FB41B2568AC0022F9C9 /* WebKit.framework in Frameworks */,
@@ -86,6 +103,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		067292D91B86CCD400A81A25 /* VenvyVideoSDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				067293E31B86CCD500A81A25 /* VenvyVideoSDK.xcodeproj */,
+			);
+			path = "VenvyVideoSDK-iOS";
+			sourceTree = SOURCE_ROOT;
+		};
+		067293E41B86CCD500A81A25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0672945B1B86CCD500A81A25 /* VenvyVideoSDK.framework */,
+				0672945D1B86CCD500A81A25 /* VenvyVideoSDKResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		068B1F741B25681C0022F9C9 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +152,7 @@
 				0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */,
 				067506901B705CAB001B699B /* VVViewPlayerViewController.m */,
 				068B1F801B25681C0022F9C9 /* Supporting Files */,
+				067292D91B86CCD400A81A25 /* VenvyVideoSDK-iOS */,
 			);
 			path = VenvyVideoSDKDemo;
 			sourceTree = "<group>";
@@ -231,6 +266,12 @@
 			mainGroup = 068B1F741B25681C0022F9C9;
 			productRefGroup = 068B1F7E1B25681C0022F9C9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 067293E41B86CCD500A81A25 /* Products */;
+					ProjectRef = 067293E31B86CCD500A81A25 /* VenvyVideoSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				068B1F7C1B25681C0022F9C9 /* VenvyVideoSDKDemo */,
@@ -238,6 +279,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0672945B1B86CCD500A81A25 /* VenvyVideoSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VenvyVideoSDK.framework;
+			remoteRef = 0672945A1B86CCD500A81A25 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0672945D1B86CCD500A81A25 /* VenvyVideoSDKResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = VenvyVideoSDKResources.bundle;
+			remoteRef = 0672945C1B86CCD500A81A25 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		068B1F7B1B25681C0022F9C9 /* Resources */ = {

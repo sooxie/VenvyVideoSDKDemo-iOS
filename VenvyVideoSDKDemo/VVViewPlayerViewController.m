@@ -10,14 +10,18 @@
 #import <VenvyVideoSDK/VVSDKPlayerView.h>
 
 #ifndef IS_IPAD
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPAD ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad))
+#endif
+
+#ifndef IS_IOS8_1
+#define IS_IOS8_1 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 && [[[UIDevice currentDevice] systemVersion] floatValue] < 8.3)
 #endif
 
 #ifndef IS_IOS8
 #define IS_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #endif
 
-@interface VVViewPlayerViewController()
+@interface VVViewPlayerViewController()<UIGestureRecognizerDelegate>
 
 @property (nonatomic) VVSDKPlayerView *playerView;
 @property (nonatomic) UIButton *backButton;
@@ -47,11 +51,13 @@
             [playerView setUrl:url];
             [playerView setVideoType:videoType];
             [playerView setLocalVideoTitle:localVideoTitle];
+//            [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
         }
         else {
             playerView = [[VVSDKPlayerView alloc] initWithFrame:CGRectMake(10, 80, 300, 200) CanSwitchFullScreen:YES IsFullScreen:NO Url:url VideoType:videoType LocalVideoTitle:localVideoTitle];
         }
         //如果有对controller的view使用或修改一定要放在最后,不然会提前调用viewDidLoad(当然手动调用startLoadingVideo可以无视)
+        
         [self.view setBackgroundColor:[UIColor darkGrayColor]];
         [self.view addSubview:playerView];
     }
@@ -77,18 +83,39 @@
             //动画可选(最佳在0.3s内完成)
             //纠正
             if(weakSelf.isNeedCorrect) {
-                weakSelf.isRotating = YES;
+                if(!IS_IOS8_1) {
+                    weakSelf.isRotating = YES;
+                }
                 [UIView animateWithDuration:0.3f animations:^{
                     if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
                         [[UIApplication sharedApplication] setStatusBarOrientation:[UIApplication sharedApplication].statusBarOrientation];
                     }
                     else {
-                        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+                        if(UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+                            if([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) {
+                                [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+                            }
+                            else {
+                                [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
+                            }
+                        }
+                        else {
+                            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+                        }
                     }
-                    
-                    if(IS_IOS8) {
-                        [weakSelf.view setTransform:CGAffineTransformIdentity];
-                        weakSelf.view.frame = CGRectMake(0, 0, maxSide, minSide);
+                    if(IS_IOS8_1) {
+                        if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+                            [weakSelf forceLandscape:[UIApplication sharedApplication].statusBarOrientation];
+                        }
+                        else {
+                            [weakSelf forceLandscape:UIInterfaceOrientationLandscapeRight];
+                        }
+                    }
+                    else {
+                        if(IS_IOS8) {
+                            [weakSelf.view setTransform:CGAffineTransformIdentity];
+                            weakSelf.view.frame = CGRectMake(0, 0, maxSide, minSide);
+                        }
                     }
                     isNeedCorrect = NO;
                     
@@ -101,16 +128,24 @@
             }
             //不是自动旋转使用这种方式触发的需要纠正
             if(!UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-                //先关闭自动旋转
-                weakSelf.isRotating = YES;
+                //先关闭自动旋转,8.1,8.2直接调用旋转设备,不能关闭
+                if(!IS_IOS8_1) {
+                    weakSelf.isRotating = YES;
+                }
+                NSLog(@"%@",NSStringFromCGAffineTransform(weakSelf.view.transform));
                 [UIView animateWithDuration:0.3f animations:^{
                     //强行旋转
                     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
-                    [weakSelf.view setTransform:CGAffineTransformMakeRotation(M_PI_2)];
-                    weakSelf.view.frame = CGRectMake(0, 0, minSide, maxSide);
+                    
+                    if(IS_IOS8_1) {
+                        [weakSelf forceLandscape:UIInterfaceOrientationLandscapeRight];
+                    }
+                    else {
+                        [weakSelf.view setTransform:CGAffineTransformMakeRotation(M_PI_2)];
+                        weakSelf.view.frame = CGRectMake(0, 0, minSide, maxSide);
+                    }
                     isNeedCorrect = YES;
                     [weakPlayerView updateFrame:CGRectMake(0,0, maxSide, minSide)];
-                    
                 }completion:^(BOOL finished) {
                     weakSelf.isRotating = NO;
                 }];
@@ -150,11 +185,18 @@
             //不是自动旋转纠正切回
             if(weakSelf.isNeedCorrect) {
                 //先关闭自动旋转
-                weakSelf.isRotating = YES;
+                if(!IS_IOS8_1) {
+                    weakSelf.isRotating = YES;
+                }
                 [UIView animateWithDuration:0.3f animations:^{
                     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
+                    if(IS_IOS8_1) {
+                        [weakSelf forceLandscape:UIInterfaceOrientationPortrait];
+                    }
+                    else {
                         [weakSelf.view setTransform:CGAffineTransformIdentity];
                         weakSelf.view.frame = CGRectMake(0, 0, minSide, maxSide);
+                    }
                     [weakPlayerView updateFrame:CGRectMake(10, 80, 300, 200)];
                     isNeedCorrect = NO;
                 }completion:^(BOOL finished) {
@@ -163,18 +205,25 @@
                 return;
             }
             if(!UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-                weakSelf.isRotating = YES;
+                if(!IS_IOS8_1) {
+                    weakSelf.isRotating = YES;
+                }
                 //强行旋转
                 [UIView animateWithDuration:0.3f animations:^{
                     if(IS_IOS8) {
-                        if([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
-                            [weakSelf.view setTransform:CGAffineTransformMakeRotation(-M_PI_2)];
+                        if(IS_IOS8_1) {
+                            [weakSelf forceLandscape:UIInterfaceOrientationPortrait];
                         }
                         else {
-                            [weakSelf.view setTransform:CGAffineTransformMakeRotation(M_PI_2)];
+                            if([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+                                [weakSelf.view setTransform:CGAffineTransformMakeRotation(-M_PI_2)];
+                            }
+                            else {
+                                [weakSelf.view setTransform:CGAffineTransformMakeRotation(M_PI_2)];
+                            }
+                            weakSelf.view.frame = CGRectMake(0, 0, maxSide, minSide);
                         }
                         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
-                        weakSelf.view.frame = CGRectMake(0, 0, maxSide, minSide);
                         isNeedCorrect = YES;
                     }
                     else {
@@ -234,7 +283,6 @@
     [self.view addSubview:fullScreenButton];
     
     [playerView startLoadingVideo];
-    
 }
 
 - (void) backButtonTapped:(id)sender {
@@ -368,6 +416,26 @@
     }
     else {
         return UIInterfaceOrientationPortrait;
+    }
+}
+
+//强制旋转设备
+- (void)forceLandscape:(UIInterfaceOrientation)orientation
+{
+    UIDevice  *myDevice = [UIDevice currentDevice];
+    if([myDevice respondsToSelector:@selector(setOrientation:)])
+    {
+        NSInteger param;
+        
+        param = orientation;
+        
+        NSMethodSignature *signature  = [[myDevice class] instanceMethodSignatureForSelector:@selector(setOrientation:)];
+        NSInvocation      *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setTarget:myDevice];
+        [invocation setSelector:@selector(setOrientation:)];
+        [invocation setArgument:&param
+                        atIndex:2];
+        [invocation invoke];
     }
 }
 

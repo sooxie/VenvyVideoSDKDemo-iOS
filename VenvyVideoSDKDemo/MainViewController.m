@@ -38,7 +38,6 @@
     [urlTextField.layer setBorderWidth:1];
     [urlTextField setFont:[UIFont systemFontOfSize:14]];
 
-    
     [self.view addSubview:urlTextField];
     
     startButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 10 - 40 - 80, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
@@ -144,7 +143,9 @@
         return;
     }
     else {
+
         VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试"];
+        
         [self presentViewController:player animated:YES completion:nil];
     }
 }
@@ -156,6 +157,7 @@
     }
     else {
         VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:2 LocalVideoTitle:@"这是直播视频测试"];
+        
         [self presentViewController:player animated:YES completion:nil];
     }
 }
@@ -173,15 +175,15 @@
  *
  */
 
-//- (void) viewWillLayoutSubviews {
-//    [urlTextField setFrame:CGRectMake(10, 30, self.view.frame.size.width - 20, 50)];
-//    [startButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
-//    [localButton setFrame:CGRectMake(CGRectGetMaxX(startButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
-//    [liveButton setFrame:CGRectMake(CGRectGetMaxX(localButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
-//    [startViewButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(startButton.frame) + 20, 80, 40)];
-//    [localViewButton setFrame:CGRectMake(CGRectGetMaxX(startViewButton.frame) + 10, CGRectGetMaxY(localButton.frame) + 20, 80, 40)];
-//    [liveViewButton setFrame:CGRectMake(CGRectGetMaxX(localViewButton.frame) + 10, CGRectGetMaxY(liveButton.frame) + 20, 80, 40)];
-//}
+- (void) viewWillLayoutSubviews {
+    [urlTextField setFrame:CGRectMake(10, 30, self.view.frame.size.width - 20, 50)];
+    [startButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
+    [localButton setFrame:CGRectMake(CGRectGetMaxX(startButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
+    [liveButton setFrame:CGRectMake(CGRectGetMaxX(localButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
+    [startViewButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(startButton.frame) + 20, 80, 40)];
+    [localViewButton setFrame:CGRectMake(CGRectGetMaxX(startViewButton.frame) + 10, CGRectGetMaxY(localButton.frame) + 20, 80, 40)];
+    [liveViewButton setFrame:CGRectMake(CGRectGetMaxX(localViewButton.frame) + 10, CGRectGetMaxY(liveButton.frame) + 20, 80, 40)];
+}
 
 
 //需要present到SDKViewController必须shouldAutorotate设为YES,不然8.1,8.2显示不正常

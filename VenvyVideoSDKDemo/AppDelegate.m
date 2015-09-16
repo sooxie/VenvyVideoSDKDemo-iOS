@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     //请自行设置生成的AppKey,AppKey必须与bundleID对应,该AppKey是测试用，对应bundleID为cn.venvyvideo.VenvyVideoSDKDemo
     [VenvyVideoSDK setAppKey:@"4J2fZ9RF"];
-    
+
     return YES;
 }
 

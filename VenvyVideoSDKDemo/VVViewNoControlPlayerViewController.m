@@ -1,13 +1,14 @@
 //
-//  VVViewPlayerViewController.m
+//  VVViewNoControlPlayerViewController.m
 //  VenvyVideoSDKDemo
 //
-//  Created by Zard1096 on 15/8/4.
+//  Created by Zard1096 on 15/9/16.
 //  Copyright (c) 2015年 VenvyVideo. All rights reserved.
 //
 
-#import "VVViewPlayerViewController.h"
+#import "VVViewNoControlPlayerViewController.h"
 #import <VenvyVideoSDK/VVSDKPlayerView.h>
+#import "VVPlayerMediaControl.h"
 
 #ifndef IS_IPAD
 #define IS_IPAD ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad))
@@ -21,7 +22,7 @@
 #define IS_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #endif
 
-@interface VVViewPlayerViewController()
+@interface VVViewNoControlPlayerViewController()
 
 @property (nonatomic) VVSDKPlayerView *playerView;
 @property (nonatomic) UIButton *backButton;
@@ -30,10 +31,12 @@
 @property (nonatomic,assign) BOOL isRotating;
 @property (nonatomic,assign) BOOL isNeedCorrect;
 @property (nonatomic,assign) BOOL isLockDevice;
+@property (nonatomic) NSMutableArray *registerNotifications;
+@property (nonatomic) VVPlayerMediaControl *mediaControl;
 
 @end
 
-@implementation VVViewPlayerViewController
+@implementation VVViewNoControlPlayerViewController
 @synthesize playerView;
 @synthesize backButton;
 @synthesize isFullScreen;
@@ -41,6 +44,8 @@
 @synthesize isRotating;
 @synthesize isNeedCorrect;
 @synthesize isLockDevice;
+@synthesize registerNotifications;
+@synthesize mediaControl;
 
 - (id) initWithUrl:(NSString *)url VideoType:(NSInteger)videoType LocalVideoTitle:(NSString *)localVideoTitle {
     self = [super init];
@@ -51,34 +56,50 @@
             [playerView setUrl:url];
             [playerView setVideoType:videoType];
             [playerView setLocalVideoTitle:localVideoTitle];
-//            [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
+            //            [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
         }
         else {
             playerView = [[VVSDKPlayerView alloc] initWithFrame:CGRectMake(10, 80, 300, 200) CanSwitchFullScreen:YES IsFullScreen:NO Url:url VideoType:videoType LocalVideoTitle:localVideoTitle];
         }
         //如果有对controller的view使用或修改一定要放在最后,不然会提前调用viewDidLoad(当然手动调用startLoadingVideo可以无视)
-        
+        [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
         [self.view setBackgroundColor:[UIColor darkGrayColor]];
         [self.view addSubview:playerView];
+        [self.view bringSubviewToFront:mediaControl];
+        
     }
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    mediaControl = [VVPlayerMediaControl instanceMediaControl];
+    [mediaControl setFrame:playerView.bounds];
+    mediaControl.playerView = playerView;
+//    [self.view addSubview:mediaControl];
+    [playerView setCustomUIView:mediaControl];
+    
     __weak __block VVSDKPlayerView *weakPlayerView = playerView;
-    __weak __block VVViewPlayerViewController *weakSelf = self;
-
-     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    __weak __block VVViewNoControlPlayerViewController *weakSelf = self;
+    __weak __block VVPlayerMediaControl *weakMediaControl = mediaControl;
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    
-    [playerView setSwitchToFullScreen:^{
+    [mediaControl setSwitchToFullScreen:^{
         weakSelf.isFullScreen = YES;
         CGFloat maxSide = MAX(weakSelf.view.frame.size.width , weakSelf.view.frame.size.height);
         CGFloat minSide = MIN(weakSelf.view.frame.size.width , weakSelf.view.frame.size.height);
-
+        
         if(!IS_IPAD) {
             //动画可选(最佳在0.3s内完成)
             //纠正
@@ -120,7 +141,7 @@
                     isNeedCorrect = NO;
                     
                     [weakPlayerView updateFrame:CGRectMake(0, 0, maxSide, minSide)];
-                    
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
                 }completion:^(BOOL finished) {
                     weakSelf.isRotating = NO;
                 }];
@@ -146,6 +167,7 @@
                     }
                     isNeedCorrect = YES;
                     [weakPlayerView updateFrame:CGRectMake(0,0, maxSide, minSide)];
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
                 }completion:^(BOOL finished) {
                     weakSelf.isRotating = NO;
                 }];
@@ -165,17 +187,19 @@
                         }
                     }
                     [weakPlayerView updateFrame:CGRectMake(0, 0, maxSide, minSide)];
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
                 }];
             }
         }
         else {
             [UIView animateWithDuration:0.3f animations:^{
                 [weakPlayerView updateFrame:CGRectMake(0, 0, maxSide, minSide)];
+                [weakMediaControl setFrame:weakPlayerView.bounds];
             }];
         }
     }];
     
-    [playerView setTurnOffFullScreen:^{
+    [weakMediaControl setTurnOffFullScreen:^{
         weakSelf.isFullScreen = NO;
         
         CGFloat maxSide = MAX(weakSelf.view.frame.size.width , weakSelf.view.frame.size.height);
@@ -198,6 +222,7 @@
                         weakSelf.view.frame = CGRectMake(0, 0, minSide, maxSide);
                     }
                     [weakPlayerView updateFrame:CGRectMake(10, 80, 300, 200)];
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
                     isNeedCorrect = NO;
                 }completion:^(BOOL finished) {
                     weakSelf.isRotating = NO;
@@ -232,7 +257,8 @@
                         weakSelf.view.frame = CGRectMake(0, 0, minSide, maxSide);
                     }
                     [weakPlayerView updateFrame:CGRectMake(10, 80, 300, 200)];
-
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
+                    
                 }completion:^(BOOL finished) {
                     weakSelf.isRotating = NO;
                 }];
@@ -246,18 +272,20 @@
                         }
                     }
                     [weakPlayerView updateFrame:CGRectMake(10, 80, 300, 200)];
+                    [weakMediaControl setFrame:weakPlayerView.bounds];
                 }];
             }
         }
         else {
             [UIView animateWithDuration:0.3f animations:^{
                 [weakPlayerView updateFrame:CGRectMake(10, 80, 600, 400)];
+                [weakMediaControl setFrame:weakPlayerView.bounds];
             }];
         }
     }];
-
-    [playerView setBackButtonTappedToDo:^{
-//        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    
+    [mediaControl setBackButtonTappedToDo:^{
+        //        [weakSelf dismissViewControllerAnimated:YES completion:nil];
         /**
          *  返回按钮方法必须设置,如果需要返回按钮点击切回小屏,只要设置
          *  [weakPlayerView enterOrExitFullScreen:NO];
@@ -267,7 +295,7 @@
          *  [weakSelf dismissViewControllerAnimated:YES completion:nil];
          */
         
-        [weakPlayerView enterOrExitFullScreen:NO];
+        [weakMediaControl enterOrExitFullScreen:NO];
     }];
     
     backButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 40, 25, 80, 30)];
@@ -287,6 +315,7 @@
 
 - (void) backButtonTapped:(id)sender {
     [playerView stopAndDestoryView];
+    [mediaControl endPlay];
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -295,11 +324,12 @@
 }
 
 - (void) fullScreenButtonTapped:(id)sender {
-    [playerView enterOrExitFullScreen:![playerView isFullScreen]];
+    [mediaControl enterOrExitFullScreen:![playerView isFullScreen]];
 }
 
 - (void) viewWillLayoutSubviews {
     //调整横竖屏按钮位置
+    [super viewWillLayoutSubviews];
     CGFloat maxSide = MAX(self.view.frame.size.width , self.view.frame.size.height);
     CGFloat minSide = MIN(self.view.frame.size.width , self.view.frame.size.height);
     CGFloat useWidth;
@@ -310,8 +340,10 @@
         useWidth = maxSide;
     }
     [backButton setFrame:CGRectMake(useWidth / 2 - 40, 25, 80, 30)];
-
+    
     [fullScreenButton setFrame:CGRectMake(useWidth / 2 - 40, CGRectGetMaxY(playerView.frame) + 10, 80, 50)];
+    
+    [mediaControl setFrame:playerView.bounds];
 }
 
 - (void)deviceOrientationChange:(NSNotification *)notification {
@@ -339,7 +371,7 @@
             }
             //进入全屏
             if(UIDeviceOrientationIsLandscape(orientation)) {
-                [playerView enterOrExitFullScreen:YES];
+                [mediaControl enterOrExitFullScreen:YES];
             }
         }
         else {
@@ -358,7 +390,7 @@
             }
             //退出全屏
             if(UIDeviceOrientationIsPortrait(orientation)) {
-                [playerView enterOrExitFullScreen:NO];
+                [mediaControl enterOrExitFullScreen:NO];
             }
             
         }
@@ -438,5 +470,6 @@
         [invocation invoke];
     }
 }
+
 
 @end

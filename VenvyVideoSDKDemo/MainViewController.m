@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import <VenvyVideoSDK/VVSDKPlayerViewController.h>
 #import "VVViewPlayerViewController.h"
+#import "VVViewNoControlPlayerViewController.h"
 
 @interface MainViewController ()
 
@@ -19,6 +20,9 @@
 @property (nonatomic) UIButton *startViewButton;
 @property (nonatomic) UIButton *localViewButton;
 @property (nonatomic) UIButton *liveViewButton;
+@property (nonatomic) UIButton *startNoViewButton;
+@property (nonatomic) UIButton *localNoViewButton;
+@property (nonatomic) UIButton *liveNoViewButton;
 
 @end
 
@@ -26,6 +30,7 @@
 @synthesize urlTextField;
 @synthesize startButton,localButton,liveButton;
 @synthesize startViewButton,localViewButton,liveViewButton;
+@synthesize startNoViewButton,localNoViewButton,liveNoViewButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,6 +87,27 @@
     [liveViewButton addTarget:self action:@selector(liveViewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:liveViewButton];
     
+    startNoViewButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(startViewButton.frame), CGRectGetMaxY(startViewButton.frame) + 20, 80, 40)];
+    [startNoViewButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
+    [startNoViewButton setTitle:@"八大noview" forState:UIControlStateNormal];
+    [startNoViewButton setBackgroundColor:[UIColor blackColor]];
+    [startNoViewButton addTarget:self action:@selector(startNoViewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startNoViewButton];
+    
+    localNoViewButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(localViewButton.frame), CGRectGetMaxY(localViewButton.frame) + 20, 80, 40)];
+    [localNoViewButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
+    [localNoViewButton setTitle:@"直接访问noview" forState:UIControlStateNormal];
+    [localNoViewButton setBackgroundColor:[UIColor blackColor]];
+    [localNoViewButton addTarget:self action:@selector(localNoViewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:localNoViewButton];
+    
+    liveNoViewButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(liveViewButton.frame), CGRectGetMaxY(liveViewButton.frame) + 20, 80, 40)];
+    [liveNoViewButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
+    [liveNoViewButton setTitle:@"直播noview" forState:UIControlStateNormal];
+    [liveNoViewButton setBackgroundColor:[UIColor blackColor]];
+    [liveNoViewButton addTarget:self action:@selector(liveNoViewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:liveNoViewButton];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -162,6 +188,44 @@
     }
 }
 
+- (void) startNoViewButtonTapped:(id)sender {
+    [urlTextField resignFirstResponder];
+    if([urlTextField.text isEqualToString:@""] || urlTextField.text == nil) {
+        return;
+    }
+    else {
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil];
+        
+        [self presentViewController:player animated:YES completion:nil];
+    }
+}
+
+- (void) localNoViewButtonTapped:(id)sender {
+    [urlTextField resignFirstResponder];
+    if([urlTextField.text isEqualToString:@""] || urlTextField.text == nil) {
+        return;
+    }
+    else {
+        
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试"];
+        
+        [self presentViewController:player animated:YES completion:nil];
+    }
+}
+
+- (void) liveNoViewButtonTapped:(id)sender {
+    [urlTextField resignFirstResponder];
+    if([urlTextField.text isEqualToString:@""] || urlTextField.text == nil) {
+        return;
+    }
+    else {
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:2 LocalVideoTitle:@"这是直播视频测试"];
+        
+        [self presentViewController:player animated:YES completion:nil];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -180,9 +244,12 @@
     [startButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
     [localButton setFrame:CGRectMake(CGRectGetMaxX(startButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
     [liveButton setFrame:CGRectMake(CGRectGetMaxX(localButton.frame) + 10, CGRectGetMaxY(urlTextField.frame) + 20, 80, 40)];
-    [startViewButton setFrame:CGRectMake(self.view.frame.size.width / 2 - 40 - 10 - 80, CGRectGetMaxY(startButton.frame) + 20, 80, 40)];
-    [localViewButton setFrame:CGRectMake(CGRectGetMaxX(startViewButton.frame) + 10, CGRectGetMaxY(localButton.frame) + 20, 80, 40)];
-    [liveViewButton setFrame:CGRectMake(CGRectGetMaxX(localViewButton.frame) + 10, CGRectGetMaxY(liveButton.frame) + 20, 80, 40)];
+    [startViewButton setFrame:CGRectMake(CGRectGetMinX(startButton.frame), CGRectGetMaxY(startButton.frame) + 20, 80, 40)];
+    [localViewButton setFrame:CGRectMake(CGRectGetMinX(localButton.frame) , CGRectGetMaxY(localButton.frame) + 20, 80, 40)];
+    [liveViewButton setFrame:CGRectMake(CGRectGetMinX(liveButton.frame) , CGRectGetMaxY(liveButton.frame) + 20, 80, 40)];
+    [startNoViewButton setFrame:CGRectMake(CGRectGetMinX(startViewButton.frame), CGRectGetMaxY(startViewButton.frame) + 20, 80, 40)];
+    [localNoViewButton setFrame:CGRectMake(CGRectGetMinX(localViewButton.frame), CGRectGetMaxY(localViewButton.frame) + 20, 80, 40)];
+    [liveNoViewButton setFrame:CGRectMake(CGRectGetMinX(liveViewButton.frame), CGRectGetMaxY(liveViewButton.frame) + 20, 80, 40)];
 }
 
 

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6EFFFE2436E28FE34257E8494111C256E1A596A5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6EFFFE2436E28FE34257E8494111C256E1A596A5" : 0,
+    "0E58F74892B649BAB7D2BDBECF835E51792FF5E9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "32543C75-9858-4C54-A3F1-492045F564CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6EFFFE2436E28FE34257E8494111C256E1A596A5" : "VenvyVideoSDKDemo",
+    "0E58F74892B649BAB7D2BDBECF835E51792FF5E9" : "VenvyVideoSDKDemoVenvyVideoSDK-iOS"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VenvyVideoSDKDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VenvyVideoSDKDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/Zard1096\/VenvyVideoSDK-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0E58F74892B649BAB7D2BDBECF835E51792FF5E9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/Zard1096\/VenvyVideoSDKDemo-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6EFFFE2436E28FE34257E8494111C256E1A596A5"
+    }
+  ]
+}

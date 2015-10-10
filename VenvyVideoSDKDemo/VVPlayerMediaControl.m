@@ -476,7 +476,6 @@
             else {
                 CGFloat ratio = ([[UIDevice currentDevice].model rangeOfString:@"iPad"].location != NSNotFound) ? 200.0f : 100.0f;
                 CGFloat nowValue = progressSlider.value;
-                NSLog(@"%lf,%lf",velocity.x,nowValue + velocity.x / ratio);
                 [progressSlider setValue:(nowValue + velocity.x / ratio) animated:NO];
                 if(progressSlider.value < originSliderValue) {
                     sliderHintImageView.image = [UIImage imageNamed:@"slider_REW"];

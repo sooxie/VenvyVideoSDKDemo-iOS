@@ -65,7 +65,6 @@
         [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
         [self.view setBackgroundColor:[UIColor darkGrayColor]];
         [self.view addSubview:playerView];
-        [self.view bringSubviewToFront:mediaControl];
         
     }
     return self;

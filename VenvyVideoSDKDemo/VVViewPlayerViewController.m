@@ -132,7 +132,7 @@
                 if(!IS_IOS8_1) {
                     weakSelf.isRotating = YES;
                 }
-                NSLog(@"%@",NSStringFromCGAffineTransform(weakSelf.view.transform));
+//                NSLog(@"%@",NSStringFromCGAffineTransform(weakSelf.view.transform));
                 [UIView animateWithDuration:0.3f animations:^{
                     //强行旋转
                     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];

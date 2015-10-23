@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>32543C75-9858-4C54-A3F1-492045F564CC</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>VenvyVideoSDKDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</key>
@@ -16,11 +16,11 @@
 		<string>https://git.oschina.net/Zard1096/VenvyVideoSDKDemo-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VenvyVideoSDKDemo.xcodeproj/project.xcworkspace</string>
+	<string>VenvyVideoSDKDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</key>
-		<string>../..VenvyVideoSDK-iOS/</string>
+		<string>../..VenvyVideoSDK-iOS</string>
 		<key>6EFFFE2436E28FE34257E8494111C256E1A596A5</key>
 		<string>../..</string>
 	</dict>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</string>
+			<string>6EFFFE2436E28FE34257E8494111C256E1A596A5</string>
 			<key>IDESourceControlWCCName</key>
-			<string>VenvyVideoSDK-iOS</string>
+			<string>VenvyVideoSDKDemo</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6EFFFE2436E28FE34257E8494111C256E1A596A5</string>
+			<string>0E58F74892B649BAB7D2BDBECF835E51792FF5E9</string>
 			<key>IDESourceControlWCCName</key>
-			<string>VenvyVideoSDKDemo</string>
+			<string>VenvyVideoSDKDemoVenvyVideoSDK-iOS</string>
 		</dict>
 	</array>
 </dict>

@@ -376,19 +376,21 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cof-Xx-J1a" userLabel="playerLoadingView" customClass="VVPlayerLoadingView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZT-RW-R1S" userLabel="lockScreenView" customClass="VVPlayerLockScreenView">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZT-RW-R1S" userLabel="lockScreenView" customClass="VVPlayerLockScreenView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="dZT-RW-R1S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="34W-hl-8ho"/>
+                <constraint firstItem="dZT-RW-R1S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4eH-Ry-Ath"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6DJ-qy-Do5"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="width" secondItem="Cof-Xx-J1a" secondAttribute="width" id="EnF-YQ-DLv"/>
+                <constraint firstAttribute="bottom" secondItem="dZT-RW-R1S" secondAttribute="bottom" id="GXQ-D3-bQC"/>
+                <constraint firstAttribute="trailing" secondItem="dZT-RW-R1S" secondAttribute="trailing" id="Htf-RS-ELs"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="height" secondItem="Cof-Xx-J1a" secondAttribute="height" id="LSo-OG-Epu"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="top" secondItem="Cof-Xx-J1a" secondAttribute="top" id="M92-7U-XGT"/>
                 <constraint firstAttribute="bottom" secondItem="7D0-2N-DA8" secondAttribute="bottom" id="Swy-37-wif"/>

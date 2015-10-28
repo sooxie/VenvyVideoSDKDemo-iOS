@@ -261,11 +261,27 @@
 
 - (UIInterfaceOrientationMask) supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    if(UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)){
+        return UIInterfaceOrientationMaskLandscape;
+    }
+    else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
 }
 
 - (UIInterfaceOrientation) preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationPortrait;
+    if(UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        if([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+            return UIInterfaceOrientationLandscapeRight;
+        }
+        else {
+            return UIInterfaceOrientationLandscapeLeft;
+        }
+    }
+    else {
+        return UIInterfaceOrientationPortrait;
+    }
 }
 
 @end

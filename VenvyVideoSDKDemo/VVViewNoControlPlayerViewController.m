@@ -84,7 +84,10 @@
     [mediaControl setFrame:playerView.bounds];
     mediaControl.playerView = playerView;
 //    [self.view addSubview:mediaControl];
+    //设置customUIView不能含有手势(UIScrollView的除外),不然会被云链层覆盖
     [playerView setCustomUIView:mediaControl];
+    //手势请置于这层
+    [playerView setCustomGestureView:mediaControl.gestureView];
     
     __weak __block VVSDKPlayerView *weakPlayerView = playerView;
     __weak __block VVViewNoControlPlayerViewController *weakSelf = self;
@@ -342,7 +345,7 @@
     
     [fullScreenButton setFrame:CGRectMake(useWidth / 2 - 40, CGRectGetMaxY(playerView.frame) + 10, 80, 50)];
     
-    [mediaControl setFrame:playerView.bounds];
+//    [mediaControl setFrame:playerView.bounds];
 }
 
 - (void)deviceOrientationChange:(NSNotification *)notification {

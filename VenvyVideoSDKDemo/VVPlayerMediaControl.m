@@ -13,6 +13,8 @@
 #import <VenvyVideoSDK/VVExpandTableView.h>
 
 #define VVMAXSIDE (MAX((UIScreen.mainScreen.bounds.size.width),(UIScreen.mainScreen.bounds.size.height)))
+//更新:分离界面层和手势层,解决按钮点击延时问题
+
 //在6代之前的机子部分长宽大小设为原来的0.8倍
 #define VVModelScale (VVMAXSIDE >= 667 ? 1 : 0.8)
 
@@ -87,6 +89,7 @@
 @synthesize strFormatArray,currentFormat;
 @synthesize gestureInfoView;
 @synthesize currentSize;
+@synthesize gestureView;
 
 +(VVPlayerMediaControl *)instanceMediaControl {
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"VVPlayerMediaControl" owner:nil options:nil];
@@ -122,6 +125,11 @@
 }
 
 - (void)initView {
+    //手势层(手势层无需添加在该页面上,设置给SDK会添加在合适位置)
+    if(!gestureView) {
+        gestureView = [[UIView alloc] initWithFrame:self.bounds];
+    }
+    
     [bufferProgressView setProgressTintColor:[UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:0.9f]];
     [bufferProgressView setTrackTintColor:[UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:0.6f]];
     
@@ -190,7 +198,7 @@
     //设置代理方法
     singleRecognizer.delegate = self;
     //增加事件者响应者
-    [mediaControl addGestureRecognizer:singleRecognizer];
+    [gestureView addGestureRecognizer:singleRecognizer];
     
     
     //单指双击
@@ -198,7 +206,7 @@
     doubleRecognizer.numberOfTouchesRequired = 1;
     doubleRecognizer.numberOfTapsRequired = 2;
     doubleRecognizer.delegate= self;
-    [mediaControl addGestureRecognizer:doubleRecognizer];
+    [gestureView addGestureRecognizer:doubleRecognizer];
     
     [singleRecognizer requireGestureRecognizerToFail:doubleRecognizer];
     
@@ -206,7 +214,7 @@
     panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     panGesture.delegate = self;
     panType = VVPanTypeNil;
-    [mediaControl addGestureRecognizer:panGesture];
+    [gestureView addGestureRecognizer:panGesture];
 }
 
 - (void)loadComplete {
@@ -557,7 +565,8 @@
         CGFloat width = (i == 1 ? 120.0f : 80.0f) * VVModelScale;
         UIScrollView *viewContainer = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, width, [strArray count] * 40.0f * VVModelScale)];
         [viewContainer setScrollEnabled:NO];
-        [self addSubview:viewContainer];
+        [mediaControl addSubview:viewContainer];
+        [mediaControl sendSubviewToBack:viewContainer];
         
         VVExpandTableView *tableView = [[VVExpandTableView alloc] initWithFrame:CGRectMake(0, 0, width, 0) Index:i  NumberOfRow:[strArray count] StrArray:strArray];
         if(i == 1) {
@@ -578,6 +587,8 @@
         [viewContainer addSubview:tableView.view];
         [viewContainer setHidden:YES];
     }
+    [mediaControl bringSubviewToFront:topControlView];
+    [mediaControl bringSubviewToFront:bottomControlView];
 }
 
 - (void)updateFormat:(NSArray *)formatList nowFormat:(NSString *)nowFormat{
@@ -755,12 +766,12 @@
                 {
                     VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
                     if(!isDisablePanGesture) {
-                        [mediaControl removeGestureRecognizer:panGesture];
+                        [gestureView removeGestureRecognizer:panGesture];
                         isDisablePanGesture = YES;
                         [tableView.strArray replaceObjectAtIndex:0 withObject:@"启用手势"];
                     }
                     else {
-                        [mediaControl addGestureRecognizer:panGesture];
+                        [gestureView addGestureRecognizer:panGesture];
                         isDisablePanGesture = NO;
                         [tableView.strArray replaceObjectAtIndex:0 withObject:@"禁用手势"];
                     }
@@ -1004,7 +1015,7 @@
             //TODO:playback seek complete
             isSeeking = NO;
             if(!isDisablePanGesture) {
-                [mediaControl addGestureRecognizer:panGesture];
+                [gestureView addGestureRecognizer:panGesture];
             }
             if(!isShowing && !isShowControl) {
                 [self pauseTimer];
@@ -1143,7 +1154,7 @@
         [self hideTableView:-1 isSwitch:NO];
     }
     originSliderValue = progressSlider.value;
-    [mediaControl removeGestureRecognizer:panGesture];
+    [gestureView removeGestureRecognizer:panGesture];
 }
 
 - (void)sliderTouchUpInside:(id)sender
@@ -1172,7 +1183,7 @@
         [self performSelector:@selector(hideControl) withObject:nil afterDelay:5.0f];
     }
     if(!isDisablePanGesture) {
-        [mediaControl addGestureRecognizer:panGesture];
+        [gestureView addGestureRecognizer:panGesture];
     }
     double value = [playerView getCurrentPlayTime];
     [progressSlider setValue:value animated:NO];
@@ -1218,6 +1229,7 @@
 
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
+    [gestureView setFrame:self.bounds];
     [playerLoadingView updateFrame:self.bounds];
     [playerLockScreenView updateFrame:self.bounds];
 }
@@ -1248,9 +1260,9 @@
         [tableView removeFromParentViewController];
         [tableView.view removeFromSuperview];
     }
-    [mediaControl removeGestureRecognizer:singleRecognizer];
-    [mediaControl removeGestureRecognizer:doubleRecognizer];
-    [mediaControl removeGestureRecognizer:panGesture];
+    [gestureView removeGestureRecognizer:singleRecognizer];
+    [gestureView removeGestureRecognizer:doubleRecognizer];
+    [gestureView removeGestureRecognizer:panGesture];
     self.playerView = nil;
     
     [self removeAllNotifications];
@@ -1298,6 +1310,18 @@
 }
 - (void) setBackButtonTappedToDo:(void (^)(void))sender {
     backButtonTappedToDo = [sender copy];
+}
+
+//必须添加,不然手势层无法正确触发
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *hitView = [super hitTest:point withEvent:event];
+    
+    if(hitView == self || hitView == mediaControl) {
+        return nil;
+    }
+    else {
+        return hitView;
+    }
 }
 
 @end

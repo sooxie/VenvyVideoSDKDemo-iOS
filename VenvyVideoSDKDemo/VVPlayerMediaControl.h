@@ -14,6 +14,10 @@
 @interface VVPlayerMediaControl : UIView
 
 @property (nonatomic,weak) VVSDKPlayerView *playerView;
+
+//手势层
+@property (nonatomic) UIView *gestureView;
+
 //返回按钮
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 //清晰度按钮

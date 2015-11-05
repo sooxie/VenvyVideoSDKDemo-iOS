@@ -18,38 +18,38 @@ This is iOS SDK Demo for Video++
 5.	如图在Build Settings标签下的Linking中的Other Linker Flags中添加 –ObjC。(注意大小写!!有使用Cocoapod的项目自带，无需设置)
  
 6.	由于有使用系统的多媒体播放功能和网页访问(iOS 8会使用WebKit)，所以需要在Build Phases中的Link Binary With Libraries要添加
-```
-    AudioToolbox.framework,
-    AVFoundation.framework,
-    MediaPlayer.framework,
-    CoreMedia.framework,
-    WebKit.framework,
-    libz.dylib,
-    libbz2.dylib。
-    如果没有使用Cocoapod可能需要多添加
-    MobileCoreServices.framework
-    Security.framework
-    SystemConfiguration.framework
-```
+>```
+>    AudioToolbox.framework,
+>    AVFoundation.framework,
+>    MediaPlayer.framework,
+>    CoreMedia.framework,
+>    WebKit.framework,
+>    libz.dylib,
+>    libbz2.dylib。
+>    如果没有使用Cocoapod可能需要多添加
+>    MobileCoreServices.framework
+>    Security.framework
+>    SystemConfiguration.framework
+>```
 
 7.	在AppDelegate.m中引入头文件
-```
- #import <VenvyVideoSDK/VenvyVideoSDK.h>
- 并在didFinishLaunchingWithOptions函数中向云视链注册你的AppKey：
-[VenvyVideoSDK setAppKey:@"xxxx"];
-```
+>```
+> #import <VenvyVideoSDK/VenvyVideoSDK.h>
+> 并在didFinishLaunchingWithOptions函数中向云视链注册你的AppKey：
+>[VenvyVideoSDK setAppKey:@"xxxx"];
+>```
 
 8.	使用时在需要接入播放器的View Controller中引入头
-```
- #import <VenvyVideoSDK/VVSDKPlayerViewController.h>
-```
+>```
+> #import <VenvyVideoSDK/VVSDKPlayerViewController.h>
+>```
 在需要使用的地方接入
 //自行填入视频路径，视频类型和播放器上显示的标题(可选)
-```
-//视频类型为 0:八大视频网站链接，1:视频原始播放地址，2:直播
-VVSDKPlayerViewController *player = [[VVSDKPlayerViewController alloc] initWithUrl:url VideoType:0 LocalVideoTitle:nil]; 
-[self presentViewController:player animated:YES completion:nil];
-```
+>```
+>//视频类型为 0:八大视频网站链接，1:视频原始播放地址，2:直播
+>VVSDKPlayerViewController *player = [[VVSDKPlayerViewController alloc] initWithUrl:url VideoType:0 LocalVideoTitle:nil]; 
+>[self presentViewController:player animated:YES completion:nil];
+>```
 注意：present去SDKPlayerViewController的VC的shouldAutorotate必须为YES。(为NO目前已知8.1和8.2会出错)
 SDKPlayerView使用方法详见高手进阶和头文件。
 

@@ -389,6 +389,7 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    //SDK会向CustomUIView分发touchesBegan:如果手势层需要该方法请在这里进行分发
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:mediaControl];
     firstX = touchPoint.x;

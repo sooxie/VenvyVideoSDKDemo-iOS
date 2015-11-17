@@ -57,7 +57,7 @@
             playerView = [[VVSDKPlayerView alloc] initWithFrame:CGRectMake(10, 80, 300, 200) CanSwitchFullScreen:YES IsFullScreen:NO Url:url VideoType:videoType LocalVideoTitle:localVideoTitle];
         }
         //如果有对controller的view使用或修改一定要放在最后,不然会提前调用viewDidLoad(当然手动调用startLoadingVideo可以无视)
-        
+        [playerView setEnableBubble:YES];
         [self.view setBackgroundColor:[UIColor darkGrayColor]];
         [self.view addSubview:playerView];
     }

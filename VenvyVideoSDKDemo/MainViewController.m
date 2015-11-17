@@ -107,7 +107,7 @@
     [liveNoViewButton setBackgroundColor:[UIColor blackColor]];
     [liveNoViewButton addTarget:self action:@selector(liveNoViewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:liveNoViewButton];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -122,6 +122,8 @@
     }
     else {
         VVSDKPlayerViewController *player = [[VVSDKPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil];
+        //开启云泡
+        [player setEnableBubble:YES];
         
         [self presentViewController:player animated:YES completion:nil];
     }

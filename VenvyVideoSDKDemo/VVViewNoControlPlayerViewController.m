@@ -81,6 +81,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mediaControl = [VVPlayerMediaControl instanceMediaControl];
+    //启用云泡
+    mediaControl.isEnableBubble = YES;
+    [mediaControl updateWithEnableBubble];
+    [playerView setEnableBubble:YES];
+    
     [mediaControl setFrame:playerView.bounds];
     mediaControl.playerView = playerView;
 //    [self.view addSubview:mediaControl];

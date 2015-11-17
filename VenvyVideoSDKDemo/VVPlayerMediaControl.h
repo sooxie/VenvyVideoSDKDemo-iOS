@@ -15,6 +15,9 @@
 
 @property (nonatomic,weak) VVSDKPlayerView *playerView;
 
+//是否启用云泡
+@property (nonatomic,assign) BOOL isEnableBubble;
+
 //手势层
 @property (nonatomic) UIView *gestureView;
 
@@ -79,6 +82,9 @@
 - (IBAction)lockScreenButtonTapped:(id)sender;
 - (IBAction)venvyTagButtonTapped:(id)sender;
 - (IBAction)screenSizeTapped:(id)sender;
+
+//更新更多按钮列表(设置是否有开启云泡功能)
+- (void)updateWithEnableBubble;
 
 //结束播放
 - (void)endPlay;

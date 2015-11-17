@@ -556,9 +556,11 @@
     buttonForExpandViewArray = [NSMutableArray arrayWithObjects:definitionButton,moreButton,screenSizeButton, nil];
     strFormatArray = [NSMutableArray arrayWithObjects:@"normal",@"high",@"super", nil];
     
+    NSMutableArray *moreArray = _isEnableBubble ? [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明",@"开启云泡", nil] : [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明", nil];
+    
     NSMutableArray *array = [NSMutableArray arrayWithObjects:
                              [NSMutableArray arrayWithObjects:@"低清",@"高清",@"超清",nil],
-                             [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明", nil],
+                             moreArray,
                              [NSMutableArray arrayWithObjects:@"默认",@"16:9",@"4:3",nil],
                              nil];
     for(NSInteger i = 0; i < [array count]; i++) {
@@ -590,6 +592,32 @@
     }
     [mediaControl bringSubviewToFront:topControlView];
     [mediaControl bringSubviewToFront:bottomControlView];
+}
+
+- (void)updateWithEnableBubble {
+     NSMutableArray *moreArray = _isEnableBubble ? [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明",@"开启云泡", nil] : [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明", nil];
+    VVExpandTableView *expandTableView;
+    for(VVExpandTableView *tempTableView in expandViewControllerArray) {
+        //更新更多列表,在array第2项
+        if(tempTableView.index == 1) {
+            expandTableView = tempTableView;
+            break;
+        }
+    }
+    if(!expandTableView) {
+        return;
+    }
+    
+    UIView *viewContainer = [expandViewArray objectAtIndex:1];
+    
+    CGRect containerFrame = viewContainer.frame;
+    containerFrame.size.height = [moreArray count] * 40.0f * VVModelScale;
+    [viewContainer setFrame:containerFrame];
+    
+    CGRect frame = expandTableView.view.frame;
+    frame.size.height = [strFormatArray count] * 40.0f * VVModelScale;
+    [expandTableView updateTableView:frame numberOfRow:[moreArray count] strArray:moreArray];
+    expandTableView.isShowSelected = NO;
 }
 
 - (void)updateFormat:(NSArray *)formatList nowFormat:(NSString *)nowFormat{
@@ -791,6 +819,25 @@
                     gestureInfoView.delegate = self;
                     [mediaControl addSubview:gestureInfoView];
                     
+                    break;
+                }
+                case 2:
+                {
+                    if(!_isEnableBubble) {
+                        break;
+                    }
+                    VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+                    BOOL isShowBubble = [playerView getBubbleIsShow];
+                    if(isShowBubble) {
+                        [playerView setShowBubble:NO];
+                        [tableView.strArray replaceObjectAtIndex:2 withObject:@"开启云泡"];
+                    }
+                    else {
+                        [playerView setShowBubble:YES];
+                        [tableView.strArray replaceObjectAtIndex:2 withObject:@"关闭云泡"];
+                    }
+                    [tableView.expandTableView reloadData];
+                    [self hideTableView:-1 isSwitch:NO];
                     break;
                 }
                 default:
@@ -1313,7 +1360,7 @@
     backButtonTappedToDo = [sender copy];
 }
 
-//必须添加,不然手势层无法正确触发
+//**必须添加,不然手势层无法正确触发
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *hitView = [super hitTest:point withEvent:event];
     

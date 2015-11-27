@@ -58,6 +58,8 @@
 //缓冲加载界面
 @property (weak, nonatomic) IBOutlet UIView *bufferLoadingView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+
+//亮度调节控制
 @property (weak, nonatomic) IBOutlet VVBrightnessProgressView *brightnessView;
 
 @property (weak, nonatomic) IBOutlet UIView *mediaControl;

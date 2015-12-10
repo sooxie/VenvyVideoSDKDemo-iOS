@@ -13,6 +13,6 @@
  */
 @interface VVViewNoControlPlayerViewController : UIViewController
 
-- (id) initWithUrl:(NSString *)url VideoType:(NSInteger)videoType LocalVideoTitle:(NSString *)localVideoTitle;
+- (id) initWithUrl:(NSString *)url VideoType:(NSInteger)videoType LocalVideoTitle:(NSString *)localVideoTitle IsLive:(BOOL)isLive;
 
 @end

@@ -147,7 +147,8 @@
         return;
     }
     else {
-        VVSDKPlayerViewController *player = [[VVSDKPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:2 LocalVideoTitle:@"这是直播视频测试"];
+        VVSDKPlayerViewController *player = [[VVSDKPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是直播视频测试"];
+        [player setIsLive:YES];
         
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -159,7 +160,7 @@
         return;
     }
     else {
-        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil];
+        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil IsLive:NO];
 
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -172,7 +173,7 @@
     }
     else {
 
-        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试"];
+        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试" IsLive:NO];
         
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -184,7 +185,7 @@
         return;
     }
     else {
-        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:2 LocalVideoTitle:@"这是直播视频测试"];
+        VVViewPlayerViewController *player = [[VVViewPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是直播视频测试" IsLive:YES];
         
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -196,7 +197,7 @@
         return;
     }
     else {
-        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil];
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:0 LocalVideoTitle:nil IsLive:NO];
         
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -209,7 +210,7 @@
     }
     else {
         
-        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试"];
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是本地视频测试" IsLive:NO];
         
         [self presentViewController:player animated:YES completion:nil];
     }
@@ -221,7 +222,7 @@
         return;
     }
     else {
-        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:2 LocalVideoTitle:@"这是直播视频测试"];
+        VVViewNoControlPlayerViewController *player = [[VVViewNoControlPlayerViewController alloc] initWithUrl:urlTextField.text VideoType:1 LocalVideoTitle:@"这是直播视频测试" IsLive:YES];
         
         [self presentViewController:player animated:YES completion:nil];
     }

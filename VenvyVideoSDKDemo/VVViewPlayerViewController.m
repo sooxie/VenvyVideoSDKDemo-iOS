@@ -42,7 +42,7 @@
 @synthesize isNeedCorrect;
 @synthesize isLockDevice;
 
-- (id) initWithUrl:(NSString *)url VideoType:(NSInteger)videoType LocalVideoTitle:(NSString *)localVideoTitle {
+- (id) initWithUrl:(NSString *)url VideoType:(NSInteger)videoType LocalVideoTitle:(NSString *)localVideoTitle IsLive:(BOOL)isLive {
     self = [super init];
     if(self) {
         isFullScreen = NO;
@@ -51,10 +51,12 @@
             [playerView setUrl:url];
             [playerView setVideoType:videoType];
             [playerView setLocalVideoTitle:localVideoTitle];
+            [playerView setIsLive:isLive];
 //            [playerView setPlaybackControlStyle:VVSDKPlayerControlStyleNone];
         }
         else {
             playerView = [[VVSDKPlayerView alloc] initWithFrame:CGRectMake(10, 80, 300, 200) CanSwitchFullScreen:YES IsFullScreen:NO Url:url VideoType:videoType LocalVideoTitle:localVideoTitle];
+            [playerView setIsLive:isLive];
         }
         //如果有对controller的view使用或修改一定要放在最后,不然会提前调用viewDidLoad(当然手动调用startLoadingVideo可以无视)
         [playerView setEnableBubble:YES];
@@ -283,6 +285,7 @@
     [self.view addSubview:fullScreenButton];
     
     [playerView startLoadingVideo];
+
 }
 
 - (void) backButtonTapped:(id)sender {

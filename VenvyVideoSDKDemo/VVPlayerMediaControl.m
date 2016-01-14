@@ -9,8 +9,8 @@
 #import "VVPlayerMediaControl.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <VenvyVideoSDK/VVMediaPlayback.h>
-#import <VenvyVideoSDK/VVGestureInfoView.h>
-#import <VenvyVideoSDK/VVExpandTableView.h>
+#import "GestureInfoView.h"
+#import "ExpandTableView.h"
 
 #define VVMAXSIDE (MAX((UIScreen.mainScreen.bounds.size.width),(UIScreen.mainScreen.bounds.size.height)))
 //更新:分离界面层和手势层,解决按钮点击延时问题
@@ -18,7 +18,7 @@
 //在6代之前的机子部分长宽大小设为原来的0.8倍
 #define VVModelScale (VVMAXSIDE >= 667 ? 1 : 0.8)
 
-@interface VVPlayerMediaControl()<UIGestureRecognizerDelegate,VVPlayerLoadingViewDelegate,VVGestureInfoViewDelegate,VVExpandTableViewDelegate>
+@interface VVPlayerMediaControl()<UIGestureRecognizerDelegate,PlayerLoadingViewDelegate,GestureInfoViewDelegate,ExpandTableViewDelegate>
 {
     void (^switchToFullScreen)(void);
     void (^turnOffFullScreen)(void);
@@ -34,7 +34,7 @@
 @property (nonatomic) UIPanGestureRecognizer *panGesture;
 @property (nonatomic) UITapGestureRecognizer *singleRecognizer;
 @property (nonatomic) UITapGestureRecognizer *doubleRecognizer;
-@property (nonatomic) VVGestureInfoView *gestureInfoView;
+@property (nonatomic) GestureInfoView *gestureInfoView;
 @property (nonatomic,assign) VVPanType panType;
 @property (nonatomic,assign) CGFloat firstX;
 @property (nonatomic,assign) CGFloat firstY;
@@ -114,6 +114,7 @@
 }
 
 - (void)awakeFromNib {
+    [self initViewFromXib];
     [self registerNotification];
     [self initView];
     [self initGesture];
@@ -122,6 +123,30 @@
 
 - (void)dealloc {
     
+}
+
+- (void)initViewFromXib {
+    brightnessView = [BrightnessProgressView instanceBrightnessProgressView];
+    [brightnessView setFrame:CGRectMake((mediaControl.frame.size.width - 154) / 2, (mediaControl.frame.size.height - 154) / 2, 154, 154)];
+    [mediaControl addSubview:brightnessView];
+    brightnessView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[brightnessView(154)]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:@{@"brightnessView":brightnessView}]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[brightnessView(154)]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"brightnessView":brightnessView}]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:brightnessView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:brightnessView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    playerLoadingView = [PlayerLoadingView instancePlayerLoadingView];
+    playerLoadingView.delegate = self;
+    [self addSubview:playerLoadingView];
+    playerLoadingView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[playerLoadingView]-0-|" options:0 metrics:nil views:@{@"playerLoadingView":playerLoadingView}]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[playerLoadingView]-0-|" options:0 metrics:nil views:@{@"playerLoadingView":playerLoadingView}]];
+    
+    playerLockScreenView = [PlayerLockScreenView instancePlayerLockScreenView];
+    [self addSubview:playerLockScreenView];
+    playerLockScreenView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[playerLockScreenView]-0-|" options:0 metrics:nil views:@{@"playerLockScreenView":playerLockScreenView}]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[playerLockScreenView]-0-|" options:0 metrics:nil views:@{@"playerLockScreenView":playerLockScreenView}]];
 }
 
 - (void)initView {
@@ -170,7 +195,6 @@
     [playerLockScreenView setHidden:YES];
     [pauseButton setHidden:YES];
     
-    [playerLoadingView updateFrame:self.bounds];
     [playerLoadingView startAnimation];
     
 }
@@ -571,7 +595,7 @@
         [mediaControl addSubview:viewContainer];
         [mediaControl sendSubviewToBack:viewContainer];
         
-        VVExpandTableView *tableView = [[VVExpandTableView alloc] initWithFrame:CGRectMake(0, 0, width, 0) Index:i  NumberOfRow:[strArray count] StrArray:strArray];
+        ExpandTableView *tableView = [[ExpandTableView alloc] initWithFrame:CGRectMake(0, 0, width, 0) Index:i  NumberOfRow:[strArray count] StrArray:strArray];
         if(i == 1) {
             tableView.isShowSelected = NO;
         }
@@ -596,8 +620,8 @@
 
 - (void)updateWithEnableBubble {
      NSMutableArray *moreArray = _isEnableBubble ? [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明",@"开启云泡", nil] : [NSMutableArray arrayWithObjects:@"禁用手势",@"手势说明", nil];
-    VVExpandTableView *expandTableView;
-    for(VVExpandTableView *tempTableView in expandViewControllerArray) {
+    ExpandTableView *expandTableView;
+    for(ExpandTableView *tempTableView in expandViewControllerArray) {
         //更新更多列表,在array第2项
         if(tempTableView.index == 1) {
             expandTableView = tempTableView;
@@ -621,8 +645,8 @@
 }
 
 - (void)updateFormat:(NSArray *)formatList nowFormat:(NSString *)nowFormat{
-    VVExpandTableView *expandTableView;
-    for(VVExpandTableView *tempTableView in expandViewControllerArray) {
+    ExpandTableView *expandTableView;
+    for(ExpandTableView *tempTableView in expandViewControllerArray) {
         //更新清晰度列表,在array第一项
         if(tempTableView.index == 0) {
             expandTableView = tempTableView;
@@ -676,7 +700,7 @@
     }
     
     UIView *containerView = [expandViewArray objectAtIndex:index];
-    VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+    ExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
     
     [tableView setSelectedIndexPath:tableView.selectedIndexPath];
     
@@ -730,11 +754,11 @@
 
 - (void) hideTableView:(NSInteger)index isSwitch:(BOOL)isSwitch
 {
-    VVExpandTableView *tableView;
+    ExpandTableView *tableView;
     
     if(index == -1 && !isExpanding) {
         for(NSInteger i = 0; i < [expandViewControllerArray count]; i++) {
-            VVExpandTableView *tempTableView = [expandViewControllerArray objectAtIndex:i];
+            ExpandTableView *tempTableView = [expandViewControllerArray objectAtIndex:i];
             if(tempTableView.isExpand) {
                 index = i;
                 break;
@@ -765,7 +789,7 @@
     }];
 }
 
-#pragma VVExpandTableView delegate
+#pragma ExpandTableView delegate
 - (void) tableViewIndex:(NSInteger)index didSelectRowAtTow:(NSInteger)row {
     switch (index) {
         case 0:
@@ -779,7 +803,7 @@
                 return;
             }
             UIButton *button = [buttonForExpandViewArray objectAtIndex:index];
-            VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+            ExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
             [button setTitle:[tableView.strArray objectAtIndex:row] forState:UIControlStateNormal];
 
             [self hideTableView:-1 isSwitch:NO];
@@ -793,7 +817,7 @@
             switch (row) {
                 case 0:
                 {
-                    VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+                    ExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
                     if(!isDisablePanGesture) {
                         [gestureView removeGestureRecognizer:panGesture];
                         isDisablePanGesture = YES;
@@ -804,7 +828,7 @@
                         isDisablePanGesture = NO;
                         [tableView.strArray replaceObjectAtIndex:0 withObject:@"禁用手势"];
                     }
-                    [tableView.expandTableView reloadData];
+                    [tableView reloadData];
                     [self hideTableView:-1 isSwitch:NO];
                     break;
                 }
@@ -815,8 +839,9 @@
                         [self pauseButtonTapped:pauseButton];
                     }
                     [self hideTableView:-1 isSwitch:NO];
-                    gestureInfoView = [[VVGestureInfoView alloc] initWithFrame:self.bounds];
+                    gestureInfoView = [GestureInfoView instanceGestureInfoView];
                     gestureInfoView.delegate = self;
+                    [gestureInfoView setFrame:self.bounds];
                     [mediaControl addSubview:gestureInfoView];
                     
                     break;
@@ -826,7 +851,7 @@
                     if(!_isEnableBubble) {
                         break;
                     }
-                    VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+                    ExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
                     BOOL isShowBubble = [playerView getBubbleIsShow];
                     if(isShowBubble) {
                         [playerView setShowBubble:NO];
@@ -836,7 +861,7 @@
                         [playerView setShowBubble:YES];
                         [tableView.strArray replaceObjectAtIndex:2 withObject:@"关闭云泡"];
                     }
-                    [tableView.expandTableView reloadData];
+                    [tableView reloadData];
                     [self hideTableView:-1 isSwitch:NO];
                     break;
                 }
@@ -851,7 +876,7 @@
         {
             //屏幕尺寸
             UIButton *button = [buttonForExpandViewArray objectAtIndex:index];
-            VVExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
+            ExpandTableView *tableView = [expandViewControllerArray objectAtIndex:index];
             [button setTitle:[tableView.strArray objectAtIndex:row] forState:UIControlStateNormal];
             
             [self hideTableView:-1 isSwitch:NO];
@@ -1278,8 +1303,8 @@
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
     [gestureView setFrame:self.bounds];
-    [playerLoadingView updateFrame:self.bounds];
-    [playerLockScreenView updateFrame:self.bounds];
+//    [playerLoadingView setFrame:self.bounds];
+//    [playerLockScreenView setFrame:self.bounds];
 }
 
 - (void)endPlay {
@@ -1294,7 +1319,7 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    for(VVExpandTableView *tableView in expandViewControllerArray)
+    for(ExpandTableView *tableView in expandViewControllerArray)
     {
         [tableView.view removeFromSuperview];
         [tableView removeFromParentViewController];
@@ -1304,7 +1329,7 @@
         [view removeFromSuperview];
     }
     expandViewArray = nil;
-    for(VVExpandTableView *tableView in expandViewControllerArray) {
+    for(ExpandTableView *tableView in expandViewControllerArray) {
         [tableView removeFromParentViewController];
         [tableView.view removeFromSuperview];
     }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="brightnessProgressView" id="iN0-l3-epB" customClass="BrightnessProgressView">
+            <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVc-8U-zdD">
+                    <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+                    <subviews>
+                        <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uS-Gzi" userLabel="backView">
+                            <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+                            <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="0.95000000000000007" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="154" id="7Qe-VQ-rvq"/>
+                                <constraint firstAttribute="height" constant="154" id="Ilr-qp-Ten"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亮度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg0-xQ-Pwm">
+                            <rect key="frame" x="61" y="10" width="32" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="4dU-0U-iKj"/>
+                                <constraint firstAttribute="width" constant="32" id="hYW-G5-KIW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_brightness" translatesAutoresizingMaskIntoConstraints="NO" id="rAY-ug-0vJ">
+                            <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2f-eH-Kfa" userLabel="Progress View" customClass="BrightnessControlProgressView">
+                            <rect key="frame" x="13" y="132" width="129" height="8"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="129" id="25b-Ed-10r"/>
+                                <constraint firstAttribute="height" constant="8" id="fXn-a2-ohP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rAY-ug-0vJ" firstAttribute="top" secondItem="IVc-8U-zdD" secondAttribute="top" id="01l-4F-ifC"/>
+                        <constraint firstItem="9UE-uS-Gzi" firstAttribute="top" secondItem="IVc-8U-zdD" secondAttribute="top" id="62C-QM-PiH"/>
+                        <constraint firstAttribute="centerX" secondItem="U2f-eH-Kfa" secondAttribute="centerX" id="7Hv-qw-pVG"/>
+                        <constraint firstAttribute="centerX" secondItem="fg0-xQ-Pwm" secondAttribute="centerX" id="BeR-kP-I8X"/>
+                        <constraint firstAttribute="trailing" secondItem="rAY-ug-0vJ" secondAttribute="trailing" id="EuH-lg-0BM"/>
+                        <constraint firstItem="rAY-ug-0vJ" firstAttribute="leading" secondItem="IVc-8U-zdD" secondAttribute="leading" id="IHH-AF-gbA"/>
+                        <constraint firstItem="9UE-uS-Gzi" firstAttribute="leading" secondItem="IVc-8U-zdD" secondAttribute="leading" id="RJg-HP-Smf"/>
+                        <constraint firstAttribute="bottom" secondItem="9UE-uS-Gzi" secondAttribute="bottom" id="X6A-7B-Y8R"/>
+                        <constraint firstAttribute="trailing" secondItem="9UE-uS-Gzi" secondAttribute="trailing" id="fH9-6P-z0f"/>
+                        <constraint firstAttribute="bottom" secondItem="rAY-ug-0vJ" secondAttribute="bottom" id="rWE-jM-p0Y"/>
+                        <constraint firstAttribute="bottom" secondItem="U2f-eH-Kfa" secondAttribute="bottom" constant="14" id="yQz-gv-y7t"/>
+                        <constraint firstItem="fg0-xQ-Pwm" firstAttribute="top" secondItem="IVc-8U-zdD" secondAttribute="top" constant="10" id="yeL-Pn-EzJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="IVc-8U-zdD" secondAttribute="centerY" id="PYK-Vk-GQi"/>
+                <constraint firstAttribute="centerX" secondItem="IVc-8U-zdD" secondAttribute="centerX" id="RiO-zV-lL1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="progressView" destination="U2f-eH-Kfa" id="Jl2-e4-QvD"/>
+            </connections>
+            <point key="canvasLocation" x="434" y="476"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="slider_brightness" width="80" height="80"/>
+    </resources>
+</document>

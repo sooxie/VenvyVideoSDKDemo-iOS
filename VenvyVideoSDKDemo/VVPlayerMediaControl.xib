@@ -319,7 +319,7 @@
                                     </variation>
                                 </activityIndicatorView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-e2-hOB" userLabel="loadingLabel">
-                                    <rect key="frame" x="2" y="68" width="146" height="20"/>
+                                    <rect key="frame" x="2" y="67" width="146" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -347,13 +347,6 @@
                                 </mask>
                             </variation>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaY-Yd-B0c" userLabel="brightnessView" customClass="VVBrightnessProgressView">
-                            <rect key="frame" x="223" y="223" width="154" height="154"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="154" id="RmR-gc-DyM"/>
-                                <constraint firstAttribute="width" constant="154" id="dvW-r9-NAR"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -361,8 +354,6 @@
                         <constraint firstAttribute="centerY" secondItem="73p-Qy-mga" secondAttribute="centerY" id="CiJ-49-3bN"/>
                         <constraint firstAttribute="trailing" secondItem="Xyk-Co-p1J" secondAttribute="trailing" id="FeY-3P-pvR"/>
                         <constraint firstAttribute="width" secondItem="73p-Qy-mga" secondAttribute="width" multiplier="4" priority="750" id="OoC-es-jtI"/>
-                        <constraint firstAttribute="centerX" secondItem="EaY-Yd-B0c" secondAttribute="centerX" id="PRz-39-c0A"/>
-                        <constraint firstAttribute="centerY" secondItem="EaY-Yd-B0c" secondAttribute="centerY" id="QaY-Bj-6d7"/>
                         <constraint firstAttribute="bottom" secondItem="5J2-vc-Ybr" secondAttribute="bottom" id="Ree-hD-lzs"/>
                         <constraint firstItem="Xyk-Co-p1J" firstAttribute="top" secondItem="7D0-2N-DA8" secondAttribute="top" id="boZ-Ns-qEc"/>
                         <constraint firstAttribute="centerY" secondItem="6C3-T8-DYT" secondAttribute="centerY" id="cQk-9S-OnX"/>
@@ -374,34 +365,17 @@
                         <constraint firstItem="6C3-T8-DYT" firstAttribute="width" secondItem="73p-Qy-mga" secondAttribute="width" id="wv8-ne-lO7"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cof-Xx-J1a" userLabel="playerLoadingView" customClass="VVPlayerLoadingView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZT-RW-R1S" userLabel="lockScreenView" customClass="VVPlayerLockScreenView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="dZT-RW-R1S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="34W-hl-8ho"/>
-                <constraint firstItem="dZT-RW-R1S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4eH-Ry-Ath"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6DJ-qy-Do5"/>
-                <constraint firstItem="7D0-2N-DA8" firstAttribute="width" secondItem="Cof-Xx-J1a" secondAttribute="width" id="EnF-YQ-DLv"/>
-                <constraint firstAttribute="bottom" secondItem="dZT-RW-R1S" secondAttribute="bottom" id="GXQ-D3-bQC"/>
-                <constraint firstAttribute="trailing" secondItem="dZT-RW-R1S" secondAttribute="trailing" id="Htf-RS-ELs"/>
-                <constraint firstItem="7D0-2N-DA8" firstAttribute="height" secondItem="Cof-Xx-J1a" secondAttribute="height" id="LSo-OG-Epu"/>
-                <constraint firstItem="7D0-2N-DA8" firstAttribute="top" secondItem="Cof-Xx-J1a" secondAttribute="top" id="M92-7U-XGT"/>
                 <constraint firstAttribute="bottom" secondItem="7D0-2N-DA8" secondAttribute="bottom" id="Swy-37-wif"/>
-                <constraint firstItem="7D0-2N-DA8" firstAttribute="leading" secondItem="Cof-Xx-J1a" secondAttribute="leading" id="UfP-Un-Mrf"/>
                 <constraint firstAttribute="trailing" secondItem="7D0-2N-DA8" secondAttribute="trailing" id="WvG-u2-Cmf"/>
                 <constraint firstItem="7D0-2N-DA8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="liF-Lb-kO0"/>
             </constraints>
             <connections>
                 <outlet property="backButton" destination="TSr-qD-sp7" id="kRQ-pX-6Rn"/>
                 <outlet property="bottomControlView" destination="5J2-vc-Ybr" id="5L6-Hn-MNW"/>
-                <outlet property="brightnessView" destination="EaY-Yd-B0c" id="SJe-ud-9XC"/>
                 <outlet property="bufferLoadingView" destination="6C3-T8-DYT" id="rLt-HO-5Pm"/>
                 <outlet property="bufferProgressView" destination="Zyi-TZ-7V4" id="L22-a1-J0p"/>
                 <outlet property="definitionButton" destination="esJ-9p-D3L" id="Zem-V6-bY7"/>
@@ -412,8 +386,6 @@
                 <outlet property="moreButton" destination="Wji-AV-Sb4" id="43Q-vf-V93"/>
                 <outlet property="pauseButton" destination="rYI-g0-ZoO" id="bHb-W0-pmD"/>
                 <outlet property="playButton" destination="BhV-7h-crh" id="lL4-Je-gfc"/>
-                <outlet property="playerLoadingView" destination="Cof-Xx-J1a" id="iA9-dE-0xt"/>
-                <outlet property="playerLockScreenView" destination="dZT-RW-R1S" id="02k-Em-aDE"/>
                 <outlet property="progressSlider" destination="htJ-8z-gtH" id="ALZ-5L-wK1"/>
                 <outlet property="screenSizeButton" destination="e2Y-nV-DT3" id="eDV-dR-EcN"/>
                 <outlet property="sliderHintImageView" destination="zyi-wD-1Dy" id="lCQ-RG-mQ5"/>
@@ -425,7 +397,7 @@
                 <outlet property="topControlView" destination="Xyk-Co-p1J" id="25F-0l-N7v"/>
                 <outlet property="venvyTagButton" destination="zVd-c1-GaD" id="5es-eW-4Zi"/>
             </connections>
-            <point key="canvasLocation" x="454" y="462"/>
+            <point key="canvasLocation" x="425" y="453"/>
         </view>
     </objects>
     <resources>

@@ -12,6 +12,8 @@
 		063C0AF41BBA6FA1005C9407 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 063C0AF31BBA6FA1005C9407 /* libbz2.dylib */; };
 		0644F5E41BA953D5009C685F /* VVPlayerMediaControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644F5E31BA953D5009C685F /* VVPlayerMediaControl.m */; };
 		0644F5EA1BA954E0009C685F /* VVViewNoControlPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644F5E91BA954E0009C685F /* VVViewNoControlPlayerViewController.m */; };
+		065E7B281C45F17A0085838A /* VenvyVideoSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 065E7B261C45F17A0085838A /* VenvyVideoSDKResources.bundle */; };
+		065E7B291C45F17A0085838A /* VideoPlsIVASDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 065E7B271C45F17A0085838A /* VideoPlsIVASDKResources.bundle */; };
 		067506911B705CAB001B699B /* VVViewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067506901B705CAB001B699B /* VVViewPlayerViewController.m */; };
 		068B1F831B25681C0022F9C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F821B25681C0022F9C9 /* main.m */; };
 		068B1F861B25681C0022F9C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1F851B25681C0022F9C9 /* AppDelegate.m */; };
@@ -27,7 +29,16 @@
 		068B1FD21B2571A90022F9C9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1FD11B2571A90022F9C9 /* MainViewController.m */; };
 		06C0B6931BBA6F7100DCAF3F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C0B6921BBA6F7100DCAF3F /* libz.tbd */; };
 		06C0B6951BBA6F7800DCAF3F /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C0B6941BBA6F7800DCAF3F /* libbz2.tbd */; };
-		06F0D0BD1C0BF3FD00AFC16A /* VenvyVideoSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06F0D0BC1C0BF3FD00AFC16A /* VenvyVideoSDKResources.bundle */; };
+		06E079331C4750D800F88980 /* GestureInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E079321C4750D800F88980 /* GestureInfoView.m */; };
+		06E079351C47512600F88980 /* GestureInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E079341C47512600F88980 /* GestureInfoView.xib */; };
+		06E0793C1C47597400F88980 /* PlayerLockScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E0793B1C47597400F88980 /* PlayerLockScreenView.m */; };
+		06E0793E1C47598D00F88980 /* PlayerLockScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E0793D1C47598D00F88980 /* PlayerLockScreenView.xib */; };
+		06E079411C47685000F88980 /* ExpandTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E079401C47685000F88980 /* ExpandTableView.m */; };
+		06E079441C476C2900F88980 /* BrightnessProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E079431C476C2900F88980 /* BrightnessProgressView.m */; };
+		06E079461C476C3700F88980 /* BrightnessProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E079451C476C3700F88980 /* BrightnessProgressView.xib */; };
+		06E079491C476F5200F88980 /* BrightnessControlProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E079481C476F5200F88980 /* BrightnessControlProgressView.m */; };
+		06E0794C1C47756B00F88980 /* PlayerLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E0794B1C47756B00F88980 /* PlayerLoadingView.m */; };
+		06E0794E1C47759000F88980 /* PlayerLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E0794D1C47759000F88980 /* PlayerLoadingView.xib */; };
 		06F40D8D1BCB8AF5009D1BA2 /* VenvyVideoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F40D561BCB88AF009D1BA2 /* VenvyVideoSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +74,8 @@
 		0644F5E31BA953D5009C685F /* VVPlayerMediaControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPlayerMediaControl.m; sourceTree = "<group>"; };
 		0644F5E81BA954E0009C685F /* VVViewNoControlPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVViewNoControlPlayerViewController.h; sourceTree = "<group>"; };
 		0644F5E91BA954E0009C685F /* VVViewNoControlPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVViewNoControlPlayerViewController.m; sourceTree = "<group>"; };
+		065E7B261C45F17A0085838A /* VenvyVideoSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = VenvyVideoSDKResources.bundle; path = "VenvyVideoSDK-iOS/Products/VenvyVideoSDKResources.bundle"; sourceTree = SOURCE_ROOT; };
+		065E7B271C45F17A0085838A /* VideoPlsIVASDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = VideoPlsIVASDKResources.bundle; path = "VenvyVideoSDK-iOS/Products/VideoPlsIVASDKResources.bundle"; sourceTree = SOURCE_ROOT; };
 		0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVViewPlayerViewController.h; sourceTree = "<group>"; };
 		067506901B705CAB001B699B /* VVViewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVViewPlayerViewController.m; sourceTree = "<group>"; };
 		068B1F7D1B25681C0022F9C9 /* VenvyVideoSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenvyVideoSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +98,22 @@
 		068B1FD11B2571A90022F9C9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		06C0B6921BBA6F7100DCAF3F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		06C0B6941BBA6F7800DCAF3F /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
-		06F0D0BC1C0BF3FD00AFC16A /* VenvyVideoSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = VenvyVideoSDKResources.bundle; path = "VenvyVideoSDK-iOS/Products/VenvyVideoSDKResources.bundle"; sourceTree = SOURCE_ROOT; };
+		06E079311C4750D800F88980 /* GestureInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureInfoView.h; sourceTree = "<group>"; };
+		06E079321C4750D800F88980 /* GestureInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureInfoView.m; sourceTree = "<group>"; };
+		06E079341C47512600F88980 /* GestureInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GestureInfoView.xib; sourceTree = "<group>"; };
+		06E0793A1C47597400F88980 /* PlayerLockScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLockScreenView.h; sourceTree = "<group>"; };
+		06E0793B1C47597400F88980 /* PlayerLockScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerLockScreenView.m; sourceTree = "<group>"; };
+		06E0793D1C47598D00F88980 /* PlayerLockScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerLockScreenView.xib; sourceTree = "<group>"; };
+		06E0793F1C47685000F88980 /* ExpandTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandTableView.h; sourceTree = "<group>"; };
+		06E079401C47685000F88980 /* ExpandTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandTableView.m; sourceTree = "<group>"; };
+		06E079421C476C2900F88980 /* BrightnessProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightnessProgressView.h; sourceTree = "<group>"; };
+		06E079431C476C2900F88980 /* BrightnessProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightnessProgressView.m; sourceTree = "<group>"; };
+		06E079451C476C3700F88980 /* BrightnessProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrightnessProgressView.xib; sourceTree = "<group>"; };
+		06E079471C476F5200F88980 /* BrightnessControlProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightnessControlProgressView.h; sourceTree = "<group>"; };
+		06E079481C476F5200F88980 /* BrightnessControlProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightnessControlProgressView.m; sourceTree = "<group>"; };
+		06E0794A1C47756B00F88980 /* PlayerLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLoadingView.h; sourceTree = "<group>"; };
+		06E0794B1C47756B00F88980 /* PlayerLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerLoadingView.m; sourceTree = "<group>"; };
+		06E0794D1C47759000F88980 /* PlayerLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerLoadingView.xib; sourceTree = "<group>"; };
 		06F40D4E1BCB88AF009D1BA2 /* VenvyVideoSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = VenvyVideoSDK.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +184,7 @@
 				068B1FD11B2571A90022F9C9 /* MainViewController.m */,
 				0675068F1B705CAB001B699B /* VVViewPlayerViewController.h */,
 				067506901B705CAB001B699B /* VVViewPlayerViewController.m */,
+				06E0792D1C47508B00F88980 /* NoControlSupportViews */,
 				0644F5E21BA953D5009C685F /* VVPlayerMediaControl.h */,
 				0644F5E31BA953D5009C685F /* VVPlayerMediaControl.m */,
 				06043A7C1BAA700700EFB3D0 /* VVPlayerMediaControl.xib */,
@@ -196,7 +225,8 @@
 		068B1FA61B25685F0022F9C9 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				06F0D0BC1C0BF3FD00AFC16A /* VenvyVideoSDKResources.bundle */,
+				065E7B261C45F17A0085838A /* VenvyVideoSDKResources.bundle */,
+				065E7B271C45F17A0085838A /* VideoPlsIVASDKResources.bundle */,
 				06C0B6941BBA6F7800DCAF3F /* libbz2.tbd */,
 				06C0B6921BBA6F7100DCAF3F /* libz.tbd */,
 				063C0AF31BBA6FA1005C9407 /* libbz2.dylib */,
@@ -208,6 +238,29 @@
 				068B1FAB1B25687A0022F9C9 /* AudioToolbox.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		06E0792D1C47508B00F88980 /* NoControlSupportViews */ = {
+			isa = PBXGroup;
+			children = (
+				06E0793F1C47685000F88980 /* ExpandTableView.h */,
+				06E079401C47685000F88980 /* ExpandTableView.m */,
+				06E079311C4750D800F88980 /* GestureInfoView.h */,
+				06E079321C4750D800F88980 /* GestureInfoView.m */,
+				06E079341C47512600F88980 /* GestureInfoView.xib */,
+				06E0793A1C47597400F88980 /* PlayerLockScreenView.h */,
+				06E0793B1C47597400F88980 /* PlayerLockScreenView.m */,
+				06E0793D1C47598D00F88980 /* PlayerLockScreenView.xib */,
+				06E079471C476F5200F88980 /* BrightnessControlProgressView.h */,
+				06E079481C476F5200F88980 /* BrightnessControlProgressView.m */,
+				06E079421C476C2900F88980 /* BrightnessProgressView.h */,
+				06E079431C476C2900F88980 /* BrightnessProgressView.m */,
+				06E079451C476C3700F88980 /* BrightnessProgressView.xib */,
+				06E0794A1C47756B00F88980 /* PlayerLoadingView.h */,
+				06E0794B1C47756B00F88980 /* PlayerLoadingView.m */,
+				06E0794D1C47759000F88980 /* PlayerLoadingView.xib */,
+			);
+			name = NoControlSupportViews;
 			sourceTree = "<group>";
 		};
 		06F40D4F1BCB88AF009D1BA2 /* Products */ = {
@@ -324,9 +377,14 @@
 			files = (
 				068B1F8C1B25681C0022F9C9 /* Main.storyboard in Resources */,
 				06043A7D1BAA700700EFB3D0 /* VVPlayerMediaControl.xib in Resources */,
+				06E0794E1C47759000F88980 /* PlayerLoadingView.xib in Resources */,
+				06E0793E1C47598D00F88980 /* PlayerLockScreenView.xib in Resources */,
 				068B1F911B25681C0022F9C9 /* LaunchScreen.xib in Resources */,
+				06E079351C47512600F88980 /* GestureInfoView.xib in Resources */,
 				068B1F8E1B25681C0022F9C9 /* Images.xcassets in Resources */,
-				06F0D0BD1C0BF3FD00AFC16A /* VenvyVideoSDKResources.bundle in Resources */,
+				065E7B281C45F17A0085838A /* VenvyVideoSDKResources.bundle in Resources */,
+				065E7B291C45F17A0085838A /* VideoPlsIVASDKResources.bundle in Resources */,
+				06E079461C476C3700F88980 /* BrightnessProgressView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,9 +402,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06E079491C476F5200F88980 /* BrightnessControlProgressView.m in Sources */,
 				068B1F861B25681C0022F9C9 /* AppDelegate.m in Sources */,
 				068B1FD21B2571A90022F9C9 /* MainViewController.m in Sources */,
+				06E079411C47685000F88980 /* ExpandTableView.m in Sources */,
+				06E0793C1C47597400F88980 /* PlayerLockScreenView.m in Sources */,
+				06E079441C476C2900F88980 /* BrightnessProgressView.m in Sources */,
+				06E079331C4750D800F88980 /* GestureInfoView.m in Sources */,
 				067506911B705CAB001B699B /* VVViewPlayerViewController.m in Sources */,
+				06E0794C1C47756B00F88980 /* PlayerLoadingView.m in Sources */,
 				068B1F831B25681C0022F9C9 /* main.m in Sources */,
 				0644F5EA1BA954E0009C685F /* VVViewNoControlPlayerViewController.m in Sources */,
 				0644F5E41BA953D5009C685F /* VVPlayerMediaControl.m in Sources */,

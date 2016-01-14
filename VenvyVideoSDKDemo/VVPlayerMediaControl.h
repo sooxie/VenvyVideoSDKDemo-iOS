@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <VenvyVideoSDK/VVSDKPlayerView.h>
-#import <VenvyVideoSDK/VVBrightnessProgressView.h>
-#import <VenvyVideoSDK/VVPlayerLoadingView.h>
-#import <VenvyVideoSDK/VVPlayerLockScreenView.h>
+#import "BrightnessProgressView.h"
+#import "PlayerLoadingView.h"
+#import "PlayerLockScreenView.h"
+
 @interface VVPlayerMediaControl : UIView
 
 @property (nonatomic,weak) VVSDKPlayerView *playerView;
@@ -60,14 +61,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 
 //亮度调节控制
-@property (weak, nonatomic) IBOutlet VVBrightnessProgressView *brightnessView;
+@property (nonatomic) BrightnessProgressView *brightnessView;
 
 @property (weak, nonatomic) IBOutlet UIView *mediaControl;
-//首次加载界面
-@property (weak, nonatomic) IBOutlet VVPlayerLoadingView *playerLoadingView;
-//锁屏用界面
-@property (weak, nonatomic) IBOutlet VVPlayerLockScreenView *playerLockScreenView;
 
+//首次加载界面
+@property (nonatomic) PlayerLoadingView *playerLoadingView;
+//锁屏用界面
+@property (nonatomic) PlayerLockScreenView *playerLockScreenView;
 
 
 @property (nonatomic,assign) BOOL isFullScreen;

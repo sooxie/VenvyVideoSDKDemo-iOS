@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="gestureInfoView" id="iN0-l3-epB" customClass="GestureInfoView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3E-R1-MAs" userLabel="back View">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gesture_introductory" translatesAutoresizingMaskIntoConstraints="NO" id="uAg-PP-7hc">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="F3E-R1-MAs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CjR-lD-dPS"/>
+                <constraint firstAttribute="centerX" secondItem="uAg-PP-7hc" secondAttribute="centerX" id="ENg-2Y-By3"/>
+                <constraint firstAttribute="bottom" secondItem="F3E-R1-MAs" secondAttribute="bottom" id="EhU-CC-Ime"/>
+                <constraint firstAttribute="trailing" secondItem="F3E-R1-MAs" secondAttribute="trailing" id="Icy-wc-amn"/>
+                <constraint firstItem="uAg-PP-7hc" firstAttribute="width" secondItem="F3E-R1-MAs" secondAttribute="width" id="PfF-XQ-x05"/>
+                <constraint firstItem="F3E-R1-MAs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YNq-3K-NTZ"/>
+                <constraint firstItem="uAg-PP-7hc" firstAttribute="height" secondItem="F3E-R1-MAs" secondAttribute="height" id="hNK-Bl-dXJ"/>
+                <constraint firstAttribute="centerY" secondItem="uAg-PP-7hc" secondAttribute="centerY" id="wcS-Hk-oF2"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="gesture_introductory" width="712" height="410"/>
+    </resources>
+</document>

@@ -4,11 +4,11 @@ This is iOS SDK Demo for Video++
 
 ## 接入指南
 
-1.	下载SDK文件，SDK文件包括 VenvyVideoSDK.framework和VenvyVideoSDKResources.bundle两个。可使用的播放器有两个: VVSDKPlayerView(view级播放器)和VVSDKPlayerViewController(Controller级播放器)。view级播放器详细请看头文件和高手进阶。含有Cocoapod和没有的接入方法一样。
+1.	下载SDK文件，SDK文件包括 VenvyVideoSDK.framework ,VideoPlsIVASDKResources.bundle 和 VenvyVideoSDKResources.bundle三个(其中VenvyVideoSDK.framework和VideoPlsIVASDKResources.bundle是必须导入,而如果使用无界面用户可以不导入VenvyVideoSDKResources.bundle)。可使用的播放器有两个: VVSDKPlayerView(view级播放器)和VVSDKPlayerViewController(Controller级播放器)。view级播放器详细请看头文件和高手进阶。含有Cocoapod和没有的接入方法一样。
 
 (注：请使用Xcode5及以上版本，SDK目前支持系统为iOS7以上(不能使用bitcode)。已知在有含ffmepg的第三方库情况下无法正常运行)。
 
-2.	将这两个文件添加到你的工程中，如果是协同开发、使用git或svn等版本控制系统，最好不要将framework复制到项目目录下，请采用Reference的方法(不要勾选Copy items if needed)。播放器支持模拟器和真机测试。（framework中包含编译ijkPlayer(ffmpeg)的库(https://github.com/Bilibili/ijkplayer) ,所以库很大。打包后会增加ipa包3.5M左右的大小(v1.1及以前为7M左右)。模拟器播放使用软解的视频会音画不同步且退出播放器时有几率闪退，CPU跟不上，真机没有此问题。另模拟器在硬解时打开全局断点会在播放前进入断点，点继续运行3～5次即可）。
+2.	将这三个文件添加到你的工程中，如果是协同开发、使用git或svn等版本控制系统，最好不要将framework复制到项目目录下，请采用Reference的方法(不要勾选Copy items if needed)。播放器支持模拟器和真机测试。（framework中包含编译ijkPlayer(ffmpeg)的库(https://github.com/Bilibili/ijkplayer)和部分系统必须库 ,所以库很大。打包后会增加ipa包3.5M左右的大小(v1.1及以前为7M左右)。模拟器播放使用软解的视频会音画不同步且退出播放器时有几率闪退，CPU跟不上，真机没有此问题。另模拟器在硬解时打开全局断点会在播放前进入断点，点继续运行3～5次即可）。
 
 ``` 
 如果使用demo请重新绑定framework和bundle，并删除红色占位的SDK。

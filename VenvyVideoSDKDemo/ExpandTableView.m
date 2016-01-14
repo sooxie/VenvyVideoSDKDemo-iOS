@@ -47,9 +47,9 @@
         index = _index;
         numberOfRows = rows;
         strArray = array;
-        if(frame.size.height < numberOfRows * SCREEN_SCALE * SCREEN_SCALE)
+        if(frame.size.height < numberOfRows * CELL_HEIGHT * SCREEN_SCALE)
         {
-            frame.size.height = numberOfRows * SCREEN_SCALE * SCREEN_SCALE;
+            frame.size.height = numberOfRows * CELL_HEIGHT * SCREEN_SCALE;
         }
         viewFrame = frame;
         isShowSelected = YES;
@@ -60,9 +60,9 @@
 - (void)updateTableView:(CGRect)frame numberOfRow:(NSInteger)rows strArray:(NSMutableArray *)array{
     numberOfRows = rows;
     strArray = array;
-    if(frame.size.height < numberOfRows * SCREEN_SCALE * SCREEN_SCALE)
+    if(frame.size.height < numberOfRows * CELL_HEIGHT * SCREEN_SCALE)
     {
-        frame.size.height = numberOfRows * SCREEN_SCALE * SCREEN_SCALE;
+        frame.size.height = numberOfRows * CELL_HEIGHT * SCREEN_SCALE;
     }
     viewFrame = frame;
     isShowSelected = YES;
@@ -121,7 +121,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return SCREEN_SCALE * SCREEN_SCALE;
+    return CELL_HEIGHT * SCREEN_SCALE;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

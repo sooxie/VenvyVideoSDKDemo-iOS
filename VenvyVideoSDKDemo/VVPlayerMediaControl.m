@@ -1046,7 +1046,9 @@
      *  MPMovieLoadStateStalled,                //阻塞
      *  MPMovieLoadStatePlaythroughOK           //能够播放
      */
-    isEnd = NO;
+    if(isEnd) {
+        return;
+    }
     MPMovieLoadState loadState = [[sender.userInfo objectForKey:@"LoadState"] integerValue];
     switch (loadState) {
         case MPMovieLoadStateStalled:

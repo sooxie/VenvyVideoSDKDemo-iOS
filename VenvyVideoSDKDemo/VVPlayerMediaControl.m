@@ -907,6 +907,7 @@
 #pragma tap gesture for button
 
 - (IBAction)playButtonTapped:(id)sender {
+    isEnd = NO;
     isPlaying = [playerView isPlaying];
     [playButton setHidden:YES];
     [pauseButton setHidden:NO];

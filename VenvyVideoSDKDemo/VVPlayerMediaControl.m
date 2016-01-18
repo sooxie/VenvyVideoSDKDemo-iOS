@@ -53,6 +53,7 @@
 @property (nonatomic) NSMutableArray *strFormatArray;
 @property (nonatomic) NSString *currentFormat;
 @property (nonatomic,assign) VVSDKPlayerScreenSize currentSize;
+@property (nonatomic,assign) BOOL isEnd;
 
 @end
 
@@ -90,6 +91,7 @@
 @synthesize gestureInfoView;
 @synthesize currentSize;
 @synthesize gestureView;
+@synthesize isEnd;
 
 +(VVPlayerMediaControl *)instanceMediaControl {
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"VVPlayerMediaControl" owner:nil options:nil];
@@ -361,7 +363,7 @@
     NSTimeInterval duration = [playerView getTotalDuration];
     NSTimeInterval position = [playerView getCurrentPlayTime];
     
-    NSTimeInterval playableDuration = [playerView getcurrentBufferTime];
+    NSTimeInterval playableDuration = [playerView getCurrentBufferTime];
     
     NSInteger intDuration = duration + 0.5;
     NSInteger intPlayableDuration = playableDuration + 0.5;
@@ -1043,6 +1045,7 @@
      *  MPMovieLoadStateStalled,                //阻塞
      *  MPMovieLoadStatePlaythroughOK           //能够播放
      */
+    isEnd = NO;
     MPMovieLoadState loadState = [[sender.userInfo objectForKey:@"LoadState"] integerValue];
     switch (loadState) {
         case MPMovieLoadStateStalled:
@@ -1198,6 +1201,9 @@
 
 - (void)playerDidFinish:(NSNotification *)sender {
     NSLog(@"播放完成");
+    //添加结束后不能拖动进度条
+    isEnd = YES;
+    [self pauseButtonTapped:nil];
 }
 
 - (void)playerVenvyLinkDidOpen:(NSNotification *)sender {
@@ -1232,6 +1238,15 @@
 
 - (void)sliderTouchUpInside:(id)sender
 {
+    //已经结束播放的无法调整进条,需要再次播放
+    if(isEnd) {
+        isSeeking = NO;
+        [self pauseTimer];
+        [progressSlider setValue:0];
+        [self sliderValueChanged:nil];
+        [gestureView addGestureRecognizer:panGesture];
+        return;
+    }
     if(!isExpand) {
         [self performSelector:@selector(hideControl) withObject:nil afterDelay:5.0f];
     }

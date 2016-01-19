@@ -124,7 +124,7 @@
 }
 
 - (void)dealloc {
-    
+    [self endPlay];
 }
 
 - (void)initViewFromXib {

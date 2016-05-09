@@ -1177,25 +1177,36 @@
 
 - (void)playerVenvyTagActive:(NSNotification *)sender {
     /**
-     *  VVSDKPlayerVenvyTagPause,               //VenvyTag被点击,暂停播放器
-     *  VVSDKPlayerVenvyTagPlay,                //VenvyTag点击结束,之前不在播放状态,可以继续播放
-     *  VVSDKPlayerVenvyTagPlaying              //VenvyTag点击结束,之前是播放,继续播放
+     *  VVSDKVenvyTagPausePlayer,         //云链被点击,打开云窗,右边遮住小半屏,可能需要暂停(最好隐藏控制栏)
+     *  VVSDKVenvyTagPlayPlayer,          //云窗关闭,如果之前控制暂停可以继续播放
+     
+     *  //如果不由SDK控制外链打开将没有以下状态
+     *  VVSDKVenvyDgPausePlayer,         //云窗的外链被点击,打开外链,默认暂停(最好暂停和隐藏控制栏)
+     *  VVSDKVenvyDgPlayPlayer           //云窗的外链关闭,默认播放(可以根据之前播放状态继续播放或者保持暂停)
      */
+    
     VVSDKPlayerVenvyTagState tagState = [[sender.userInfo objectForKey:@"VenvyTagState"] integerValue];
     switch (tagState) {
-        case VVSDKPlayerVenvyTagPause:
+        case VVSDKVenvyTagPausePlayer:
         {
-            NSLog(@"云链被点击,暂停播放");
+            NSLog(@"云链被点击");
+            [self hideControl];
             break;
         }
-        case VVSDKPlayerVenvyTagPlay:
+        case VVSDKVenvyTagPlayPlayer:
         {
-            NSLog(@"云链被关闭,能够播放");
+            NSLog(@"云窗被关闭");
             break;
         }
-        case VVSDKPlayerVenvyTagPlaying: {
-            NSLog(@"云链被关闭,能够播放并开始播放");
+        case VVSDKVenvyDgPausePlayer: {
+            NSLog(@"云窗外链被点击,需要暂停播放器");
+            [self pauseButtonTapped:nil];
+            [self hideControl];
             break;
+        }
+        case VVSDKVenvyDgPlayPlayer: {
+            NSLog(@"外链关闭,能够继续播放播放器");
+            [self playButtonTapped:nil];
         }
         default:
             break;
